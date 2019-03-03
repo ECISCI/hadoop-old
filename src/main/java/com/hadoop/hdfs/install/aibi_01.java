@@ -1,4 +1,4 @@
-package com.hadoop.aibi.hadoop.install;
+package com.hadoop.hdfs.install;
 
 /**
  * Linux编译Hadoop
@@ -81,13 +81,13 @@ public class aibi_01 {
     /*@1 HDFS集群 负责文件读写
      *
      * name node 默认端口9000,针对客户端访问
-     * （记录用户上传的文件分布在哪个data node上）
+     * （记录用户上传的文件分布在哪个datanode上）
      *
      * data node
      *
-     *@2 yarn集群 为mapreduce程序分配运算硬件资源
+     *@2 yarn集群为mapreduce程序分配运算硬件资源
      *
-     * yarn 集群节点放在HDFS data node上
+     *   yarn集群节点放在HDFS datanode上
      */
 
     /**

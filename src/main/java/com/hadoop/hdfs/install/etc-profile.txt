@@ -1,10 +1,13 @@
 export JAVA_HOME=/usr/local/apps/jdk1.7.0_45
+
 export JRE_HOME=${JAVA_HOME}/jre
+
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 
 export MAVEN_HOME=/usr/local/apps/apache-maven-3.5.4
 
 export ANT_HOME=/usr/local/apps/apache-ant-1.9.13
+
 export ZOOKEEPER_HOME=/usr/local/apps/zookeeper
 
 export FINDBUGS_HOME=/usr/local/apps/findbugs-3.0.1

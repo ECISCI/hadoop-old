@@ -1,4 +1,4 @@
-package com.hadoop.aibi.hadoop.shell;
+package com.hadoop.hdfs.shell;
 
 /**
  * @author Ming
@@ -9,7 +9,7 @@ public class aibi_01 {
     /**
      * @1 hdfs上传文件
      *
-     * hadoop fs -put canglaoshi.avi /
+     * hadoop fs -put mumu.avi /
      */
     /**
      * @2 查看根目录下的文件

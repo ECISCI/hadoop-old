@@ -1,4 +1,4 @@
-package com.hadoop.aibi.hadoop.install;
+package com.hadoop.hdfs.install;
 
 /**
  * @author Ming

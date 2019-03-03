@@ -1,10 +1,29 @@
-package com.hadoop.aibi.zoo;
+package com.hadoop.zoo;
 
 /**
  * @author Ming
  * @描述 Linux Zookeeper集群搭建
  */
 public class Zookeeper {
+
+    /**
+     * Zookeeper概念简介
+     */
+    /*
+     * Zookeeper 是一个分布式协调服务,就是为用户的分布式应用程序提供协调服务
+     *
+     * a. zookeeper是为别的分布式程序服务的
+     *
+     * b. zookeeper本身是一个分布式程序（只要有半数以上节点存活zookeeper就能正常服务）
+     *
+     * c. zookeeper所提供的服务涵盖 主从协调,服务器节点动态上下线,统一配置管理,分布式共享锁
+     *
+     * 统一名称服务
+     *
+     * d.虽然说可以提供各种服务,但zookeeper在底层其实只提供了两个功能,管理（存储,读取）用户提交数据
+     *
+     * 并未数据提供监听服务
+     */
     /**
      * @1 文件上传
      */
@@ -43,7 +62,7 @@ public class Zookeeper {
      * */
     /*@1 注意:这个data目录最好放在根目录下,我也不知道为什么,放在zookeeper目录下启动会失败
      *
-     *@2 在根目录下创建一个文件夹 zkdata
+     *@2 在根目录下创建一个文件夹zkdata
      *
      *@3 进入zkdata文件夹 执行命令 vim myid,在myid文件中输入1然后保存退出即可
      *
@@ -72,9 +91,9 @@ public class Zookeeper {
      *
      *@3 查看zookeeper是否启动成功 命令jps
      *
-     *@4 查看zookeeper日志 进入zookeeper目录下 执行命令
+     *@4 查看zookeeper日志,进入zookeeper目录下
      *
-     * cat zookeeper.out
-     * */
+     * 执行命令  cat zookeeper.out
+     */
 }
 
