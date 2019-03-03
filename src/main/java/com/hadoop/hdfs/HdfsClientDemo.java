@@ -1,12 +1,14 @@
 package com.hadoop.hdfs;
 
+import com.hadoop.utils.L;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.*;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author Ming
@@ -73,4 +75,57 @@ public class HdfsClientDemo {
         fileSystem.copyFromLocalFile(new Path("D:/access.log"), new Path("/access.log.copy"));
         fileSystem.close();
     }
+
+    public static void testDownload() throws Exception {
+
+        fileSystem.copyToLocalFile(new Path("/access.log.copy"), new Path("D:/"));
+        fileSystem.close();
+    }
+
+    public static void testConf() {
+        Iterator<Map.Entry<String, String>> iterator = conf.iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> entry = iterator.next();
+            //conf加载的内容
+            L.i(entry.getValue() + "--" + entry.getValue());
+        }
+    }
+
+    /**
+     * @描述 创建目录
+     */
+    public static void testMakdir() throws Exception {
+        boolean mkdirs = fileSystem.mkdirs(new Path("/aaa/bbb"));
+        L.i(mkdirs);
+    }
+
+    /**
+     * @描述 删除
+     */
+    public static void testDelete() throws Exception {
+        boolean delete = fileSystem.delete(new Path("/aaa"), true);//true， 递归删除
+        L.i(delete);
+    }
+
+    /**
+     * @throws Exception
+     * @描述
+     */
+    public static void testList() throws Exception {
+
+        FileStatus[] listStatus = fileSystem.listStatus(new Path("/"));
+        for (FileStatus fileStatus : listStatus) {
+
+            L.e(fileStatus.getPath() + ":::::" + fileStatus.toString());
+        }
+        //会递归找到所有的文件
+        RemoteIterator<LocatedFileStatus> listFiles = fileSystem.listFiles(new Path("/"), true);
+        while (listFiles.hasNext()) {
+            LocatedFileStatus next = listFiles.next();
+            String name = next.getPath().getName();
+            Path path = next.getPath();
+            L.i(name + "---" + path.toString());
+        }
+    }
+
 }
