@@ -1,4 +1,4 @@
-package com.hadoop.hdfs.install;
+package com.hadoop.basic.install;
 
 /**
  * @author Ming

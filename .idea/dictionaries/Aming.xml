@@ -6,6 +6,7 @@
       <w>bootproto</w>
       <w>cdrom</w>
       <w>cenos</w>
+      <w>chgrp</w>
       <w>chkconfig</w>
       <w>chown</w>
       <w>cnetos</w>
@@ -70,6 +71,7 @@
       <w>uname</w>
       <w>useradd</w>
       <w>vmware</w>
+      <w>weblog</w>
       <w>xiaoming</w>
       <w>zcvf</w>
       <w>zkdata</w>

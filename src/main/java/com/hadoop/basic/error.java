@@ -1,4 +1,4 @@
-package com.hadoop.hdfs;
+package com.hadoop.basic;
 
 public class error {
     /**
