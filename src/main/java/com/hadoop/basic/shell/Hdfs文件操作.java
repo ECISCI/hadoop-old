@@ -4,7 +4,7 @@ package com.hadoop.basic.shell;
  * @author Ming
  * @描述 Hdfs文件操作
  */
-public class aibi_01 {
+public class Hdfs文件操作 {
 
     /**
      *  @1 hdfs上传文件

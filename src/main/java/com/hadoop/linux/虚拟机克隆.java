@@ -1,37 +1,37 @@
 package com.hadoop.linux;
 
-public class aibi_05 {
+public class 虚拟机克隆 {
     /**
-     * 1. 克隆虚拟机
+     * @1.克隆虚拟机
      */
     /*
      * 右键虚拟机 点击--管理--克隆
      */
 
     /**
-     * 2. 克隆后的虚拟机要做的操作 解决克隆猴eth0不见的问题
+     * @2.克隆后的虚拟机要做的操作 解决克隆猴eth0不见的问题
      */
     /*
      *
-     * @1 直接修改 /etc/sysconfig/network-script/ifcfg-eth0
+     * 1. 直接修改 /etc/sysconfig/network-script/ifcfg-eth0
      *
-     * @2 删掉 UUID HWADDR
+     * 2. 删掉 UUID HWADDR
      *
-     * @3 配置静态ip地址
+     * 3. 配置静态ip地址
      *
-     * @4 rm -rf /etc/udev/rules.d/70-persistent-net.rules
+     * 4. rm -rf /etc/udev/rules.d/70-persistent-net.rules
      *
-     * @5 重新启动客户机
+     * 5. 重新启动客户机
      */
 
     /**
-     * 3.命令补充
+     * @3.命令补充
      */
     /*
-     * @1 文件系统操作 cp somefile.1 /home/hadoop/ 拷贝命令
+     * 1. 文件系统操作 拷贝命令
+     * cp somefile.1 /home/hadoop/
      *
-     * @2 查看文件内容
-     *
+     * 2. 查看文件内容
      * cat somefile 一次性将文件内容全部输出（控制台）
      *
      * more somefile 可以翻页查看,下翻一页（空格） 上翻一页（b） 退出（q）
@@ -49,28 +49,36 @@ public class aibi_05 {
      */
 
     /**
-     * 4.后台服务管理
+     * @4.后台服务管理
      */
     /*
-     * service --status-all 查看系统在后台正在运行的程序
+     * 1.查看系统在后台正在运行的程序
+     * service --status-all
      *
-     * service network stop 停掉网络（这种命令最好别用）
+     * 2.停掉网络（这种命令最好别用）
+     * service network stop
      *
-     * service network start 启动网络
+     * 3.启动网络
+     * service network start
      *
-     * service network restart 重启网络
+     * 4.重启网络
+     * service network restart
      *
-     * service network status 查看指定服务的状态
+     * 5.查看指定服务的状态
+     * service network status
      *
-     * chkconfig 查看所有服务的自启配置
+     * 6.查看所有服务的自启配置
+     * chkconfig
      *
-     * chkconfig iptables off 关掉指定服务的自动启动
+     * 7.关掉指定服务的自动启动
+     * chkconfig iptables off
      *
-     * chkconfig iptables on 开启指定服务的自动启动
+     * 8.开启指定服务的自动启动
+     * chkconfig iptables on
      */
 
     /**
-     * 5.系统启动级别管理
+     * @5.系统启动级别管理
      */
     /*
      *

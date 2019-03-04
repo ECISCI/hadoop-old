@@ -3,7 +3,7 @@ package com.hadoop.basic.install;
 /**
  * Linux编译Hadoop
  */
-public class aibi_01 {
+public class 编译安装 {
 
     /**
      * @1 所需软件

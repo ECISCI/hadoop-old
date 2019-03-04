@@ -4,7 +4,7 @@ package com.hadoop.linux;
  * @author Ming
  * @描述 Linux安装 mySql数据库
  */
-public class aibi_07 {
+public class MySql数据库 {
 
 
     /*
@@ -13,20 +13,27 @@ public class aibi_07 {
      *
      * @2 <如果需要>rpm -e --nodeps mysql-libs-5.1.71-1.el6.i686<卸载当前mysql>
      *
-     *
      * @@****CentOS6.5 32/64 安装mysql
      *
-     * @1 rpm -ivh MySQL-server-5.1.73-1.glibc23.i386.rpm <安装mysql>
      *
-     * @2 rpm -e mysql-libs-5.1.71-1.el6.i686 --nodes <遇到冲突的解决办法>
      *
-     * @3 netstat -nltp<查看网络端口如果mysql启动它会监听3306端口>
+     * 1.安装mysql
+     * rpm -ivh MySQL-server-5.1.73-1.glibc23.i386.rpm
      *
-     * @4 rpm -ivh MySQL-client-5.1.73-1.glibc23.i386.rpm <安装客户端>
+     * 2.遇到冲突的解决办法
+     * rpm -e mysql-libs-5.1.71-1.el6.i686 --nodes
      *
-     * @5 service mysql start <启动mysql服务>
+     * 3.查看网络端口如果mysql启动它会监听3306端口
+     * netstat -nltp
      *
-     * @6 /usr/bin/mysql_secure_installation<客户端安装完成后通过此去设置mysqlroot账户密码>
+     * 4.安装客户端
+     * rpm -ivh MySQL-client-5.1.73-1.glibc23.i386.rpm
+     *
+     * 5.启动mysql服务
+     * service mysql start <>
+     *
+     * 6.客户端安装完成后通过此去设置mysqlroot账户密码
+     * @6 /usr/bin/mysql_secure_installation
      *
      *
      * @@**** 遇到的错误

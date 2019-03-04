@@ -4,22 +4,20 @@ package com.hadoop.linux;
  * @author Ming
  * @描述 Linux网络配置
  */
-public class aibi_01 {
+public class 网络配置 {
 
-    // 1. 程序部署到"云上" 云的概念就是虚拟机
 
     /**
-     * 2. 安装过程中会出现错误
+     * @1.安装过程中会出现错误
      */
     /*
      * 有些同学的机器安装vmware时会出现一个错误: virtual XT 这需要重启电脑, 进入 BIOS开启这个虚拟机加速开关
-     *
      *
      * 有些windows8/10系统会报错,会出现虚拟网卡 安装失败, 这需要关闭windows的驱动程序安装签名验证
      */
 
     /**
-     * 3.Linux目录结构
+     * @2.Linux目录结构
      */
     /*
      * etc 配置文件（程序的配置文件,系统的配置文件）,所有的配置文件都放在这个文件夹下面
@@ -34,7 +32,7 @@ public class aibi_01 {
      */
 
     /**
-     *4.IP NETMASK(子网掩码) DNS
+     *@3.IPNETMASK(子网掩码),DNS
      */
     /*
      * IP 192.168.33.2
@@ -56,22 +54,22 @@ public class aibi_01 {
      */
 
     /**
-     * 5. 虚拟机配置IP的方法
+     * @5.虚拟机配置IP的方法
      */
     /*
-     * @1 打开终端 执行命令 vi /etc/sysconfig/network-scripts/ifconfig-eth0
+     * 1. 打开终端 执行命令 vi /etc/sysconfig/network-scripts/ifconfig-eth0
      *
-     * @2 进入vi编辑模式
+     * 2. 进入vi编辑模式
      *
-     * @3 将ONBOOT = no 更改为 ONBOOT = yes
+     * 3. 将ONBOOT = no 更改为 ONBOOT = yes
      *
-     * @4 增加 IPADDR= 192.168.194.80 这个就是远程访问的ip地址
+     * 4. 增加 IPADDR= 192.168.194.80 这个就是远程访问的ip地址
      *
-     * @5 BOOTPROTO 更改为 BOOTPROTO=static
+     * 5. BOOTPROTO 更改为 BOOTPROTO=static
      *
-     * @6 增加 NETMASK= 255.255.255.0
+     * 6. 增加 NETMASK= 255.255.255.0
      *
-     * @7 增加GETWAY = 192.168.194.1
+     * 7. 增加GETWAY = 192.168.194.1
      */
 
 }

@@ -4,7 +4,7 @@ package com.hadoop.basic.install;
  * @author Ming
  * @描述 Hadoop
  */
-public class aibi_02 {
+public class 简介 {
     /**
      * @1 简介
      */

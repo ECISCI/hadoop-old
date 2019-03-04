@@ -19,7 +19,13 @@ public class HdfsClientDemo {
 
     private static FileSystem fileSystem;
     private static Configuration conf;
+    /**
+     * 远程Hadoop Namenode
+     */
     private static String HDFS_URI = "hdfs://192.168.25.136:9000";
+    /**
+     * 这个参数具体作用有待考正
+     */
     private static String USER = "root";
 
     public static void main(String[] args) {

@@ -20,12 +20,14 @@
       <w>fstab</w>
       <w>getconf</w>
       <w>getway</w>
+      <w>glibc</w>
       <w>gpgcheck</w>
       <w>haha</w>
       <w>hdfs</w>
       <w>httpd</w>
       <w>huangxiaoming</w>
       <w>hwaddr</w>
+      <w>ifcfg</w>
       <w>initdefault</w>
       <w>inittab</w>
       <w>ipaddr</w>
@@ -45,6 +47,7 @@
       <w>mumu</w>
       <w>myid</w>
       <w>mysq</w>
+      <w>mysqlroot</w>
       <w>namenode</w>
       <w>ncurses</w>
       <w>netmask</w>

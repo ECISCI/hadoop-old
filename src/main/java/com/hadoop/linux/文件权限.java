@@ -4,12 +4,12 @@ package com.hadoop.linux;
  * @author Ming
  * @描述 Linux文件权限操作常用命令
  */
-public class aibi_03 {
+public class 文件权限 {
     /**
-     * 1.Linux文件操作权限初识
+     * @1.Linux文件操作权限初识
      */
     /*
-     * @1 drwxr-xr-x
+     * 1. drwxr-xr-x
      *
      * d: 标识节点类型（d:文件夹, -：文件 1：链接）
      *
@@ -24,23 +24,29 @@ public class aibi_03 {
      */
 
     /**
-     * 2.chmod 修改文件权限 d(rwx)(r-x)(r-x)
+     * @2.chmod修改文件权限 d(rwx)(r - x)(r - x)
      */
 
     /*
-     * chmod g-rw haha.bat 表示将haha.bat对所属组的 rw权限取消
+     * 1.将haha.bat对所属组的 rw权限取消
+     * chmod g-rw haha.bat
      *
-     * chmod o-rw haha.bat 表示对haha.bat对其他人的rw权限取消
+     * 2.对haha.bat对其他人的rw权限取消
+     * chmod o-rw haha.bat
      *
-     * chmod u+x haha.bat 表示将haha.bat对所属用户的权限增加x
+     * 3.将haha.bat对所属用户的权限增加x
+     * chmod u+x haha.bat
      *
      * chmod 700 haha.bat
      *
-     * chmod 777 haha.bat 增加全部权限
+     * 4.增加全部权限
+     * chmod 777 haha.bat
      *
-     * chmod 664 haha.bat 会修改成 rw-rw--
+     * 5.修改成 rw-rw--
+     * chmod 664 haha.bat
      *
-     * chmod -R 770 mingaa/ 如果要将一个文件夹所有内容权限统一修改(递归修改)
+     * 6.如果要将一个文件夹所有内容权限统一修改(递归修改)
+     * chmod -R 770 mingaa/
      */
 
 }

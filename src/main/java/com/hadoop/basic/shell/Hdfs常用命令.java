@@ -4,7 +4,7 @@ package com.hadoop.basic.shell;
  * @author Ming
  * @描述 Hdfs常用命令及参数介绍
  */
-public class aibi_02 {
+public class Hdfs常用命令 {
 
     /**
      * @1 -ls
