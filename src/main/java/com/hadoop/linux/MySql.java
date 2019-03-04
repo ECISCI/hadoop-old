@@ -4,7 +4,7 @@ package com.hadoop.linux;
  * @author Ming
  * @描述 Linux安装 mySql数据库
  */
-public class MySql数据库 {
+public class MySql {
 
 
     /*

@@ -4,7 +4,7 @@ package com.hadoop.linux;
  * @author Ming
  * @描述 linux下的Shell
  */
-public class Shell命令 {
+public class Shell {
 
     /*
      * Shell是用户与内核进行交互的操作的一种接口目前最流行的Shell称为bash Shell

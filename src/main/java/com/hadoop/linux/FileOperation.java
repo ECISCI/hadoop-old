@@ -4,7 +4,7 @@ package com.hadoop.linux;
  * @author Ming
  * @描述 Linux文件操作常用命令
  */
-public class 文件操作 {
+public class FileOperation {
     /**
      * @1.makdir创建文件夹
      */

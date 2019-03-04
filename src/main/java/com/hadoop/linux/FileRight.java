@@ -4,7 +4,7 @@ package com.hadoop.linux;
  * @author Ming
  * @描述 Linux文件权限操作常用命令
  */
-public class 文件权限 {
+public class FileRight {
     /**
      * @1.Linux文件操作权限初识
      */

@@ -1,9 +1,10 @@
 package com.hadoop.linux;
 
 /**
+ * @author Ming
  * @Linux 常见的用户管理
  */
-public class 用户管理 {
+public class UserManager {
     /**
      * @1.添加用户
      */

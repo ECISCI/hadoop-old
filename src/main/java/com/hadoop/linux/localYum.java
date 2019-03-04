@@ -2,10 +2,10 @@ package com.hadoop.linux;
 
 /**
  * @author Ming
- * @描述 本地yum源
+ * @描述 localYum
  * @注意:如果有网络还是别配置了,费死劲了,有时候还不好使
  */
-public class 本地yum源 {
+public class localYum {
     /*
      * 两种方式,
      *

@@ -4,7 +4,7 @@ package com.hadoop.linux;
  * @author Ming
  * @描述 Linux网络配置
  */
-public class 网络配置 {
+public class NetConf {
 
 
     /**

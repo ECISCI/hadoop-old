@@ -1,6 +1,10 @@
 package com.hadoop.linux;
 
-public class 虚拟机克隆 {
+/**
+ * @author Ming
+ * @描述 克隆虚拟机
+ */
+public class VmClone {
     /**
      * @1.克隆虚拟机
      */

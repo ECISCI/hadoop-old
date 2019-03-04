@@ -3,6 +3,9 @@
     <words>
       <w>baidu</w>
       <w>baseurl</w>
+      <w>bigdata</w>
+      <w>blockmanagement</w>
+      <w>blockreport</w>
       <w>bootproto</w>
       <w>cdrom</w>
       <w>cenos</w>
@@ -10,13 +13,17 @@
       <w>chkconfig</w>
       <w>chown</w>
       <w>cnetos</w>
+      <w>crond</w>
+      <w>crontab</w>
       <w>datanode</w>
       <w>devel</w>
+      <w>dfsadmin</w>
       <w>drwxr</w>
       <w>dskip</w>
       <w>dtar</w>
       <w>filezilla</w>
       <w>firstball</w>
+      <w>fsimage</w>
       <w>fstab</w>
       <w>getconf</w>
       <w>getway</w>
@@ -27,9 +34,11 @@
       <w>httpd</w>
       <w>huangxiaoming</w>
       <w>hwaddr</w>
+      <w>hwclock</w>
       <w>ifcfg</w>
       <w>initdefault</w>
       <w>inittab</w>
+      <w>inprogress</w>
       <w>ipaddr</w>
       <w>iptables</w>
       <w>iptabls</w>
@@ -43,27 +52,42 @@
       <w>mingbb</w>
       <w>mingcc</w>
       <w>minghadoop</w>
+      <w>msec</w>
       <w>multiuser</w>
       <w>mumu</w>
       <w>myid</w>
       <w>mysq</w>
       <w>mysqlroot</w>
       <w>namenode</w>
+      <w>namesystem</w>
       <w>ncurses</w>
+      <w>netdate</w>
       <w>netmask</w>
       <w>netstat</w>
       <w>nltp</w>
       <w>nodemanager</w>
       <w>nodeps</w>
+      <w>nomodify</w>
+      <w>noquery</w>
+      <w>notrap</w>
+      <w>notrust</w>
+      <w>ntpd</w>
+      <w>ntpdate</w>
+      <w>ntpq</w>
       <w>onboot</w>
       <w>openssh</w>
       <w>passwd</w>
       <w>pdist</w>
       <w>protobuf</w>
+      <w>protos</w>
       <w>pstree</w>
+      <w>rackid</w>
+      <w>refid</w>
       <w>resourcemanager</w>
       <w>runlevel</w>
       <w>runlevels</w>
+      <w>safemode</w>
+      <w>saxparser</w>
       <w>sodu</w>
       <w>somefile</w>
       <w>srvice</w>

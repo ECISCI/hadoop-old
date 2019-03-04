@@ -1,4 +1,4 @@
-package com.hadoop.hdfs;
+package com.hadoop.hdfs.test;
 
 import com.hadoop.utils.L;
 import org.apache.hadoop.conf.Configuration;
@@ -17,6 +17,8 @@ import java.util.Map;
  */
 public class HdfsClientDemo {
 
+    private static final String TAG =HdfsClientDemo.class.getSimpleName();
+
     private static FileSystem fileSystem;
     private static Configuration conf;
     /**
@@ -33,7 +35,8 @@ public class HdfsClientDemo {
 
         try {
             init();
-            testUpLoad();
+//            testUpLoad();
+            testList();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -93,7 +96,7 @@ public class HdfsClientDemo {
         while (iterator.hasNext()) {
             Map.Entry<String, String> entry = iterator.next();
             //conf加载的内容
-            L.i(entry.getValue() + "--" + entry.getValue());
+            L.i(TAG,entry.getValue() + "--" + entry.getValue());
         }
     }
 
@@ -110,7 +113,7 @@ public class HdfsClientDemo {
      */
     public static void testDelete() throws Exception {
         boolean delete = fileSystem.delete(new Path("/aaa"), true);//true， 递归删除
-        L.i(delete);
+        L.i(TAG,delete);
     }
 
     /**
@@ -122,7 +125,7 @@ public class HdfsClientDemo {
         FileStatus[] listStatus = fileSystem.listStatus(new Path("/"));
         for (FileStatus fileStatus : listStatus) {
 
-            L.e(fileStatus.getPath() + ":::::" + fileStatus.toString());
+            L.e(TAG,fileStatus.getPath() + ":::::" + fileStatus.toString());
         }
         //会递归找到所有的文件
         RemoteIterator<LocatedFileStatus> listFiles = fileSystem.listFiles(new Path("/"), true);
@@ -130,7 +133,7 @@ public class HdfsClientDemo {
             LocatedFileStatus next = listFiles.next();
             String name = next.getPath().getName();
             Path path = next.getPath();
-            L.i(name + "---" + path.toString());
+            L.i(TAG,name + "::" + path.toString());
         }
     }
 
