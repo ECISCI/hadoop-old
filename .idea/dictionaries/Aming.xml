@@ -21,11 +21,15 @@
       <w>drwxr</w>
       <w>dskip</w>
       <w>dtar</w>
+      <w>eyin</w>
+      <w>fileds</w>
       <w>filezilla</w>
       <w>firstball</w>
       <w>fsimage</w>
       <w>fstab</w>
       <w>getconf</w>
+      <w>getd</w>
+      <w>getu</w>
       <w>getway</w>
       <w>glibc</w>
       <w>gpgcheck</w>
@@ -42,6 +46,8 @@
       <w>ipaddr</w>
       <w>iptables</w>
       <w>iptabls</w>
+      <w>keyin</w>
+      <w>keyout</w>
       <w>makdir</w>
       <w>mapred</w>
       <w>mapredece</w>
@@ -97,8 +103,11 @@
       <w>umount</w>
       <w>uname</w>
       <w>useradd</w>
+      <w>valuein</w>
+      <w>valueout</w>
       <w>vmware</w>
       <w>weblog</w>
+      <w>wordcount</w>
       <w>xiaoming</w>
       <w>zcvf</w>
       <w>zkdata</w>
