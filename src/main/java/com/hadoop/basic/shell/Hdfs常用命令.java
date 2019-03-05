@@ -23,7 +23,6 @@ public class Hdfs常用命令 {
      * @2 -mkdir
      */
     /*
-     *
      * 功能:在hdfs上创建目录
      *
      * 示例:hdfs fs -mkdir -p /aaa/bbb/ccc/ddd

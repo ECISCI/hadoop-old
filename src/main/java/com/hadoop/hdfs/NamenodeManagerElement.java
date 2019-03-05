@@ -1,4 +1,4 @@
-package com.hadoop.hdfs.note;
+package com.hadoop.hdfs;
 
 /**
  * @author Ming

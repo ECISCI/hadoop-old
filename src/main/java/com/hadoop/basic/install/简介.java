@@ -2,11 +2,11 @@ package com.hadoop.basic.install;
 
 /**
  * @author Ming
- * @描述 Hadoop
+ * @描述 Hadoop简介
  */
 public class 简介 {
     /**
-     * @1 简介
+     * @Hadoop简介
      */
     /*1.Hadoop是apache旗下的一套开源软件平台
      *

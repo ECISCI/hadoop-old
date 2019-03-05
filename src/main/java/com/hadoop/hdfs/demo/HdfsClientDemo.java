@@ -1,4 +1,4 @@
-package com.hadoop.hdfs.test;
+package com.hadoop.hdfs.demo;
 
 import com.hadoop.utils.L;
 import org.apache.hadoop.conf.Configuration;

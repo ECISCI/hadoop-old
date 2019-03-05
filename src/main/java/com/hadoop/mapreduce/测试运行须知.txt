@@ -27,7 +27,8 @@
 
 2.如何将程序运行在Linux上
 
-###注意 Linux上的JDK版本要与开发版本保持一致,否则运行会报错
+！！！###特别注意,IDE项目Java环境必须小于Linux环境,这里配置的JDK为1.7,否则运行会报错版本不对
+
 ###注意 在Linux运行MapReduce不可以使用java -jar命令,会报错提示相关配置文件不不存在
 
 2.1 Linux正确运行mapreduce的方法
@@ -52,7 +53,7 @@ FileInputFormat.setInputPaths(job, new Path(args[0])); //  /wordcount/input
 // 指定job的输出结果所在目录
 FileOutputFormat.setOutputPath(job, new Path(args[1])); //  /wordcount/output
 
-！！！###特别注意,IDE项目Java环境必须小于Linux环境
+
 
 
 

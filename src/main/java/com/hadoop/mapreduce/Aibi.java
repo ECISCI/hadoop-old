@@ -1,4 +1,4 @@
-package com.hadoop.mapreduce.note;
+package com.hadoop.mapreduce;
 
 /**
  * @author Ming

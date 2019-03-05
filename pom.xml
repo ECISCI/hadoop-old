@@ -107,7 +107,7 @@
                                 <addClasspath>true</addClasspath>
                                 <useUniqueVersions>false</useUniqueVersions>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>com.hadoop.mapreduce.wordcount.WordCountDriver</mainClass>
+                                <mainClass>com.hadoop.mapreduce.flowstatistics.FlowCount</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
