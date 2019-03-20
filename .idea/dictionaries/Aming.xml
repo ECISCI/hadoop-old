@@ -18,9 +18,12 @@
       <w>datanode</w>
       <w>devel</w>
       <w>dfsadmin</w>
+      <w>dfshealth</w>
       <w>drwxr</w>
       <w>dskip</w>
       <w>dtar</w>
+      <w>excutor</w>
+      <w>exernal</w>
       <w>eyin</w>
       <w>fileds</w>
       <w>filezilla</w>
@@ -36,6 +39,7 @@
       <w>gpgcheck</w>
       <w>haha</w>
       <w>hdfs</w>
+      <w>hdpdata</w>
       <w>httpd</w>
       <w>huangxiaoming</w>
       <w>hwaddr</w>
@@ -47,12 +51,15 @@
       <w>ipaddr</w>
       <w>iptables</w>
       <w>iptabls</w>
+      <w>journaldata</w>
+      <w>journalnode</w>
       <w>keyin</w>
       <w>keyout</w>
       <w>makdir</w>
       <w>mapred</w>
       <w>mapredece</w>
       <w>mapreduce</w>
+      <w>metastore</w>
       <w>mingaa</w>
       <w>mingaaa</w>
       <w>mingangle</w>
@@ -66,6 +73,9 @@
       <w>mysq</w>
       <w>mysqlroot</w>
       <w>namenode</w>
+      <w>namenodes</w>
+      <w>nameservice</w>
+      <w>nameservices</w>
       <w>namesystem</w>
       <w>ncurses</w>
       <w>netdate</w>
@@ -88,9 +98,12 @@
       <w>protobuf</w>
       <w>protos</w>
       <w>pstree</w>
+      <w>qjournal</w>
       <w>rackid</w>
+      <w>rcfile</w>
       <w>refid</w>
       <w>resourcemanager</w>
+      <w>resourcemananger</w>
       <w>runlevel</w>
       <w>runlevels</w>
       <w>safemode</w>
@@ -98,6 +111,7 @@
       <w>sodu</w>
       <w>somefile</w>
       <w>srvice</w>
+      <w>sshfence</w>
       <w>sudoers</w>
       <w>sysconfig</w>
       <w>udev</w>
@@ -112,6 +126,7 @@
       <w>xiaoming</w>
       <w>zcvf</w>
       <w>zkdata</w>
+      <w>zkfc</w>
       <w>zxvf</w>
     </words>
   </dictionary>

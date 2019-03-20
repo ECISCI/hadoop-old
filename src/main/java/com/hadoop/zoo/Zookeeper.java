@@ -100,5 +100,16 @@ public class Zookeeper {
      *
      * 执行命令  cat zookeeper.out
      */
+
+    /**
+     * @7得到一个干净的zookeeper
+     */
+    /*
+     *解压后进入zookeeper目录下
+     *
+     *执行命令 rm -rf *.xml *.txt docs *.md5 src *.asc *.sha1
+     *
+     *
+     */
 }
 

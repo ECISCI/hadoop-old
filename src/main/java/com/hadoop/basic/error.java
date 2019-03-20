@@ -68,12 +68,26 @@ public class error {
      * @6datanode下线多久能看到效果
      */
     /*
-     * datanode只要下线就会被namenode认为下线了,有一个超时时间
+     * datanode只要下线就会被namenode认为下线了,
+     *
+     * 但有一个超时时间
      */
+
     /**
      * @7关于副本数量的问题
      */
-    /* 副本数是由客户端的参数dfs.replication决定的(优先级conf.set>自定义配置文件>jar包中hdfs-default.xml)
+    /*
+     *副本数是由客户端的参数dfs.replication决定的(优先级conf.set>自定义配置文件>jar包中hdfs-default.xml)
+     */
+
+    /**
+     * @8java.net.ConnectionException拒绝连接
+     */
+    /*
+     * @1 出现如上异常肯定是网络连接问题
+     *
+     * @2 检查 /etc/hosts文件是否配置错误
+     *
      */
 
 }
