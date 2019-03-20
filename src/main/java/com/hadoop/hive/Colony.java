@@ -59,8 +59,8 @@ public class Colony {
      *
      *   6.3 将salves中内容删除,添加如下内容
      *      hadoop05
-h    *      hadoop06
-h    *      hadoop07
+     *      hadoop06
+     *      hadoop07
      *
      *@7 配置ssh免密登录,在basic文件夹下 SSH即为ssh免密登录配置,每台机器都弄一遍吧,要不后续太费事
      *
