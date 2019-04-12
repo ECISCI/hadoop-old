@@ -31,9 +31,9 @@ public class Colony {
     /**
      * @1 集群搭建, 首先需要7台干净的虚拟机
      */
-    /*@1 首选需要7台干净的虚拟机(虚拟机中需要有Java环境)
+    /*1. 首选需要7台干净的虚拟机(虚拟机中需要有Java环境)
      *
-     *@2 配置ip映射,每台虚拟机都要配置 命令 vim /etc/hosts
+     *2. 配置ip映射,每台虚拟机都要配置 命令 vim /etc/hosts
      *
      * 192.168.25.136   hadoop01
      * 192.168.25.133   hadoop02
@@ -43,13 +43,13 @@ public class Colony {
      * 192.168.25.138   hadoop06
      * 192.168.25.139   hadoop07
      *
-     *@3 重启客户器
+     *3. 重启客户机
      *
-     *@4 将已编译好的hadoop源文件上传到hadoop01 /usr/local/apps目录下执行解压命令
+     *4. 将已编译好的hadoop源文件上传到hadoop01 /usr/local/apps目录下执行解压命令
      *
-     *@5 进入cd /usr/local/apps/hadoop-2.6.4/etc/hadoop/
+     *5. 进入cd /usr/local/apps/hadoop-2.6.4/etc/hadoop/
      *
-     *@6 需要编辑的文件有 <hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml salves>
+     *6. 需要编辑的文件有 <hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml salves>
      *
      *   6.1 hadoop-env.sh 配置本机Java环境 如下所示
      *   export JAVA_HOME=/usr/local/apps/jdk1.8.0_201
@@ -62,12 +62,12 @@ public class Colony {
      *      hadoop06
      *      hadoop07
      *
-     *@7 配置ssh免密登录,在basic文件夹下 SSH即为ssh免密登录配置,每台机器都弄一遍吧,要不后续太费事
+     *7. 配置ssh免密登录,在basic文件夹下 SSH即为ssh免密登录配置,每台机器都弄一遍吧,要不后续太费事
      *
-     *@8 配置hadoop命令环境 /etc/profile 这个不做解释
+     *8. 配置hadoop命令环境 /etc/profile 这个不做解释
      *
      *
-     *@9 执行命令 scp -r hadoop-2.6.4/ hadoop02:/usr/local/apps
+     *9. 执行命令 scp -r hadoop-2.6.4/ hadoop02:/usr/local/apps
      *
      * #注意 从2-7都需要执行,拷贝6分到其他机器上
      */
@@ -77,29 +77,29 @@ public class Colony {
      */
 
     /**
-     * @3 重点来了
+     * @3 集群启动方法(重点!必须按照以下步骤启动,否则会启动失败)
      */
 
     /*
-     *@1 启动zookeeper集群
+     *1. 启动zookeeper集群（在hadoop5 hadoop6 hadoop7上启动zookeeper集群）
      *
-     *@2 进入 hadoop05 hadoop06 hadoop07 hadoop目录下sbin目录 执行命令
+     *2. 进入 hadoop05 hadoop06 hadoop07 hadoop目录下sbin目录
      *
-     * ./hadoop-daemon.sh start journalnode (用jps查看进程,看看是否启动成功,一旦启动失败,全玩完)
+     * 执行命令 ./hadoop-daemon.sh start journalnode (用jps查看进程,看看是否启动成功,一旦启动失败,全玩完)
      *
-     *@3 格式化hadoop01  命令:hdfs namenode -format
+     *3. 格式化hadoop01 命令:hdfs namenode -format（如果失败,请进入logs文件夹下查看错误日志）
      *
-     *@4 进入 /home 目录下(我这里配置的是/home路径) 将hadoop文件夹拷贝到hadoop02 /home目录下
+     *4. 进入 /home 目录下(我这里配置的是/home路径) 将hadoop文件夹拷贝到hadoop02 /home目录下
      *
-     *@5 执行命令 hdfs zkfc -formatZK  在hadoop01上执行一次即可
+     *5. 执行命令 hdfs zkfc -formatZK  在hadoop01上执行一次即可
      *
-     *@6 进入hadoop01 hadoop-2.6.4/sbin目录下 执行命令 ./start-dfs.sh
+     *6. 进入hadoop01 hadoop-2.6.4/sbin目录下 执行命令 ./start-dfs.sh
      *
-     *@7 进入hadoop03 hadoop04 同上目录执行 ./start-yarn.sh  jps 查看resourcemananger进程是否存在
+     *7. 进入hadoop03 hadoop04 同上目录执行 ./start-yarn.sh  jps 查看resourcemananger进程是否存在
      *
-     *@8 访问http://192.168.25.136:50070/dfshealth.html#tab-overview  ...active表示执行成功
+     *8. 访问http://192.168.25.136:50070/dfshealth.html#tab-overview  ...active表示执行成功
      *
-     *@9 访问http://192.168.25.133:50070/dfshealth.html#tab-overview  ...standby表示待命
+     *9. 访问http://192.168.25.133:50070/dfshealth.html#tab-overview  ...standby表示待命
      */
 
 

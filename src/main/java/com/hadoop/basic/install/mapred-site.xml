@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
+<!-- ###!!!注意:将这些标签拷贝到linux的时候要把中文注释删掉,否则会出现格式化错误-->
 <!--在Configuration节点下配置如下-->
 <configuration>
     <property>

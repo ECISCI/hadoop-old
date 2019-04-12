@@ -5,7 +5,7 @@ public class Aibi {
      * @1hadoop datanode节点超时时间设置
      */
     /*
-     *datanode进程死亡或者网络故障造成datanode无法与namenode通信，
+     *  datanode进程死亡或者网络故障造成datanode无法与namenode通信，
      *
      *  namenode不会立即把该节点判定为死亡，要经过一段时间，
      *

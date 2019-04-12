@@ -5,7 +5,7 @@ public class Hdfs {
      * @1 Hdfs工作机制 概述
      */
 
-    /*1. Hdfs分为两大角色,Namenode,Datanode(Secondary Namenode)
+    /*1.Hdfs分为两大角色,Namenode,Datanode(Secondary Namenode)
      *
      *2.Namenode负责管理整个文件系统的元数据
      *
@@ -20,7 +20,6 @@ public class Hdfs {
      * 则会负责保持文件副本数量
      *
      *7.Hdfs的内部工作机制对客户端保持透明,客户端请求访问Hdfs都是通过namenode申请来进行
-     *
      */
 
     // @2 HDFS写数据流程

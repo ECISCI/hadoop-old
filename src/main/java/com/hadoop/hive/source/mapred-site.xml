@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
+<!--！！！复制文件的时候,请将中文注释去掉-->
+
 <configuration>
 <property>
     <name>mapreduce.framework.name</name>

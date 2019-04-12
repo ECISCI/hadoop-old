@@ -23,6 +23,6 @@ public class Hdfs文件操作 {
      * @3 查看文件切块block
      */
     /*
-     * cd /home/hadoop/hadoop-2.4.1/tmp/dfs/data/current/BP-947242337-192.168.25.136-1551269960523/current/finalized/subdir0/subdir0
+     * cd /home/hadoop
      */
 }

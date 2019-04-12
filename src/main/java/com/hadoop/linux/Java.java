@@ -1,5 +1,9 @@
 package com.hadoop.linux;
 
+/**
+ * @author Ming
+ * @描述 Linux安装Java环境
+ */
 public class Java {
     /**
      * @1.如何上传安装包到服务器

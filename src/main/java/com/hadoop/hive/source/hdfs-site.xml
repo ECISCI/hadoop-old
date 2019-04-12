@@ -1,3 +1,6 @@
+
+<!--！！！复制文件的时候,请将中文注释去掉-->
+
 <configuration>
     <!--指定hdfs的nameservice为bi，需要和core-site.xml中的保持一致 -->
     <property>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
+<!--！！！复制文件的时候,请将中文注释去掉-->
 <configuration>
     <!-- 指定hdfs的nameservice为ns1 -->
     <property>

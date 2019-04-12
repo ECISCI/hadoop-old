@@ -4,6 +4,7 @@
       <w>baidu</w>
       <w>baseurl</w>
       <w>bigdata</w>
+      <w>bigtable</w>
       <w>blockmanagement</w>
       <w>blockreport</w>
       <w>bootproto</w>
@@ -38,8 +39,11 @@
       <w>glibc</w>
       <w>gpgcheck</w>
       <w>haha</w>
+      <w>hbase</w>
       <w>hdfs</w>
       <w>hdpdata</w>
+      <w>hmaster</w>
+      <w>hregino</w>
       <w>httpd</w>
       <w>huangxiaoming</w>
       <w>hwaddr</w>
@@ -51,6 +55,7 @@
       <w>ipaddr</w>
       <w>iptables</w>
       <w>iptabls</w>
+      <w>jline</w>
       <w>journaldata</w>
       <w>journalnode</w>
       <w>keyin</w>
@@ -71,6 +76,7 @@
       <w>mumu</w>
       <w>myid</w>
       <w>mysq</w>
+      <w>mysqld</w>
       <w>mysqlroot</w>
       <w>namenode</w>
       <w>namenodes</w>
@@ -82,6 +88,7 @@
       <w>netmask</w>
       <w>netstat</w>
       <w>nltp</w>
+      <w>noarch</w>
       <w>nodemanager</w>
       <w>nodeps</w>
       <w>nomodify</w>
@@ -102,6 +109,7 @@
       <w>rackid</w>
       <w>rcfile</w>
       <w>refid</w>
+      <w>repolist</w>
       <w>resourcemanager</w>
       <w>resourcemananger</w>
       <w>runlevel</w>
@@ -122,8 +130,10 @@
       <w>valueout</w>
       <w>vmware</w>
       <w>weblog</w>
+      <w>wget</w>
       <w>wordcount</w>
       <w>xiaoming</w>
+      <w>xinetd</w>
       <w>zcvf</w>
       <w>zkdata</w>
       <w>zkfc</w>

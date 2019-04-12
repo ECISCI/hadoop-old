@@ -3,113 +3,59 @@ package com.hadoop.linux;
 /**
  * @author Ming
  * @描述 Linux安装 mySql数据库
+ * @描述 yum源安装mysql
  */
 public class MySql {
 
-
-    /*
-     * @1 <如果需要>rpm -qa | grep -i mysql <检查本地是否有mysql数据库>
+    /**
+     * @1检查本地是否已安装MySql
+     */
+    /* 1. yum list installed | grep mysql
      *
+     *      1.1 如果已安装卸载已安装的mysql
      *
-     * @2 <如果需要>rpm -e --nodeps mysql-libs-5.1.71-1.el6.i686<卸载当前mysql>
-     *
-     * @@****CentOS6.5 32/64 安装mysql
-     *
-     *
-     *
-     * 1.安装mysql
-     * rpm -ivh MySQL-server-5.1.73-1.glibc23.i386.rpm
-     *
-     * 2.遇到冲突的解决办法
-     * rpm -e mysql-libs-5.1.71-1.el6.i686 --nodes
-     *
-     * 3.查看网络端口如果mysql启动它会监听3306端口
-     * netstat -nltp
-     *
-     * 4.安装客户端
-     * rpm -ivh MySQL-client-5.1.73-1.glibc23.i386.rpm
-     *
-     * 5.启动mysql服务
-     * service mysql start <>
-     *
-     * 6.客户端安装完成后通过此去设置mysqlroot账户密码
-     * @6 /usr/bin/mysql_secure_installation
-     *
-     *
-     * @@**** 遇到的错误
-     *
-     * <如果需要>ps aux |grep mysq* <找到mysql进程然后杀死>
-     *
-     * kill 2139
-     *
-     * <如果需要>service mysql start 重启mysql
-     *
-     * @@*** 解决socket连接问题
-     *
-     * vim /etc/my.cnf <vi打开my.cnf文件并添加以下配置>
-     *
-     * @@*** MySQLCouldn't find MySQL manager错误
-     *
-     * <执行命令>mv /etc/mysql/my.cnf /etc/mysql/my.cnf.old
-     *
-     * 把/etc/mysql/my.cnf重命名成my.cnf.old
-     *
-     * <执行命令>/etc/init.d/mysql start
+     *      1.2 卸载命令 yum -y remove mysql-libs.x86_64
      */
 
     /**
-     * 配置本地yum源
+     * @2安装mysql,并做相关配置
      */
     /*
-     * @1 cd /etc/yum.repos.d/ <yum位置>
+     * 1.wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
      *
-     * @2 mv CentOS-Media.repo CentOS-Media.repo.bak
+     * 2. 安装用来配置mysql的yum源的rpm包
      *
-     * @3 rename .repo.bak .repo
+     * rpm -Uvh mysql57-community-release-el6-9.noarch.rpm
      *
-     * @4 rename .repo.bak .repo *
+     * 3. 成功后进入 /etc/yum.repos.d/ 查看是否多出几个mysql的yum源
      *
-     * @@**** 终端一  umount /dev/cdrom
+     * mysql-community-source.repo
      *
-     * @5 mkdir /mnt/cdrom
+     * mysql-community.repo
      *
-     * @6 ll /mnt/cdrom
+     * 4. 安装mysql (这个过程说快也快说慢也慢,网速好就快,网速慢就慢)
      *
-     * @7 mount -t iso9660 -o -ro /dev/cdrom /mnt/cdrom/
+     * yum install mysql-community-server -y
      *
-     * @@****终端二
+     * 5.启动mySql
      *
-     * @8 cd /etc/yum.repos.d/
+     * service mysqld start
      *
-     * @9 vi CentOS-Media.repo
+     * 6.查看mysql生成的临时root密码
      *
-     * @10 更改 baseurl=file:///mnt/cdrom
+     * grep 'temporary password' /var/log/mysqld.log
      *
-     * @11 更改gpgcheck=0
+     * 7.修改root密码
      *
-     * @12 更改enabled=1
+     *  (命令)mysql_secure_installation
      *
-     * @13 rename .repo .repo.bak *
-     *
-     * @14 mv CentOS-Media.repo.bak CentOS-Media.repo
-     *
-     * @15 yum clean all
+     *  将上一步生成的临时密码复制过来登录然后修改密码即可
      */
 
     /**
-     * yum命令
+     * @3查看编码
      */
     /*
-     * @1 yum list |  mysql 查看库中是否有mysql
-     *
-     * @2 yum -y install gcc 安装gcc 并且一路确定
+     * show variables like 'character%';
      */
-
-    /**
-     * 查找文件
-     */
-    /*
-     * find / -name mysql 查找mysql的所有安装路径
-     */
-
 }
