@@ -34,7 +34,5 @@ public class TestHa {
 
         // 关闭流
         fileSystem.close();
-
-
     }
 }

@@ -41,7 +41,7 @@ public class HiveEnv {
     /**
      * @3使用hive
      */
-    /* 全局命令 hive,就像mySql一样
-     *
+    /*
+     * 全局命令 hive,就像mySql一样
      */
 }

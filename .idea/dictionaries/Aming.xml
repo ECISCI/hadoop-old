@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Aming">
     <words>
+      <w>ambari</w>
       <w>baidu</w>
       <w>baseurl</w>
       <w>bigdata</w>
@@ -87,10 +88,12 @@
       <w>netdate</w>
       <w>netmask</w>
       <w>netstat</w>
+      <w>neusoft</w>
       <w>nltp</w>
       <w>noarch</w>
       <w>nodemanager</w>
       <w>nodeps</w>
+      <w>nofile</w>
       <w>nomodify</w>
       <w>noquery</w>
       <w>notrap</w>
@@ -122,6 +125,7 @@
       <w>sshfence</w>
       <w>sudoers</w>
       <w>sysconfig</w>
+      <w>sysctl</w>
       <w>udev</w>
       <w>umount</w>
       <w>uname</w>

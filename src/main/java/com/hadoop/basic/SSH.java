@@ -19,6 +19,6 @@ public class SSH {
      *
      *@2 ssh-keygen - t rsa
      *
-     *@3 ssh-copy-id hadoop01
+     *@3 ssh-copy-id 主机名或IP映射
      */
 }

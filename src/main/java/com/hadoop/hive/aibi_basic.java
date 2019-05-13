@@ -125,13 +125,13 @@ public class aibi_basic {
     /**
      * @8Hive的数据存储
      */
-    /* 1.Hive中所有的户数都存在HDFS中,没有专门的数据存储格式(可支持 Text,SequenceFile,ParquetFile,RCFILE等)
+    /* 1.Hive中所有的数据都存在HDFS中,没有专门的数据存储格式(可支持 Text,SequenceFile,ParquetFile,RCFILE等)
      *
      * 2.只需要创建表的时候告诉Hive数据中列分隔符和行分隔符,Hive就可以解析数据
      *
      * 3.Hive中包含以下的数据模型:DB,Table,Exernal Table,Partition,Bucket
      *
-     * db：在hdfs中表现为${hive.metastore.warehouse.dir}目录下一个文件夹
+     * db：在         ive.metastore.warehouse.dir}目录下一个文件夹
      *
      * table：在hdfs中表现所属db目录下一个文件夹
      *

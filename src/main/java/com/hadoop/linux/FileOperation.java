@@ -123,5 +123,12 @@ public class FileOperation {
      * netstat -nltp
      */
 
+    /**
+     * @9解压 xz文件
+     */
+    /*
+     *  tar -Jxf node-v8.11.3-linux-x64.tar.xz
+     */
+
 }
 

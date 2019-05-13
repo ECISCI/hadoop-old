@@ -58,4 +58,8 @@ public class MySql {
     /*
      * show variables like 'character%';
      */
+
+    /**
+     * @4开放 3306端口 vim /etc/sysconfig/iptables
+     */
 }

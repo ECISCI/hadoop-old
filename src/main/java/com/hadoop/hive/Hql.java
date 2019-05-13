@@ -36,4 +36,11 @@ public class Hql {
      * select id,name from hive01 where id>2;
      */
 
+    /**
+     * @4 通过Sql去执行mapreduce
+     */
+    /*
+     * select id,name from hive01 order by name;
+     */
+
 }
