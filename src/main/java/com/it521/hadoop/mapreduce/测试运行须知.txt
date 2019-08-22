@@ -1,0 +1,60 @@
+1.IDE如何将程序打成Jar包(此工程已配置好)
+
+1.1在pom文件plugins节点下加入如下代码
+<plugin>
+     <groupId>org.apache.maven.plugins</groupId>
+     <artifactId>maven-jar-plugin</artifactId>
+     <configuration>
+         <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <useUniqueVersions>false</useUniqueVersions>
+              <classpathPrefix>lib/</classpathPrefix>
+              <--设置Jar包程序主入口类是哪个-->
+              <mainClass>com.it521.hadoop.mapreduce.wordcount.WordCountDriver</mainClass>
+            </manifest>
+          </archive>
+       </configuration>
+</plugin>
+
+1.2將pom文件<packaging>jar</packaging>节点更改为jar
+
+1.3可视窗口点击右侧MavenProject-->Lifecycle-->package
+
+1.4可是窗口左侧target目录下就有已经打好的Jar包
+
+1.5 war包原理如上
+
+2.如何将程序运行在Linux上
+
+！！！###特别注意,IDE项目Java环境必须小于Linux环境,这里配置的JDK为1.7,否则运行会报错版本不对
+
+###注意 在Linux运行MapReduce不可以使用java -jar命令,会报错提示相关配置文件不不存在
+
+2.1 Linux正确运行mapreduce的方法
+
+hadoop jar Hadoop.jar com.it521.hadoop.mapreduce.wordcount.WordCountDriver /wordcount/input /wordcount/output
+
+解释:hadoop命令为配置在linux环境变量中
+
+Hadoop.jar是我们将IDE程序打成的Jar包上传到Linux上
+
+com.it521.hadoop.mapreduce.wordcount.WordCountDriver 如果没有指定运行主类,用这个参数指定运行主类
+
+/wordcount/input  这个目录是在hdfs根目录下的,如果要查看可以使用命令 hadoop fs -ls /wordcount/input
+
+
+/wordcount/output 这个目录是不存在的,driver程序运行之后自动创建的
+
+以下代码的两个参数,就是这么传给主函数的
+
+// 指定job的输入原始文件所在目录
+FileInputFormat.setInputPaths(job, new Path(args[0])); //  /wordcount/input
+// 指定job的输出结果所在目录
+FileOutputFormat.setOutputPath(job, new Path(args[1])); //  /wordcount/output
+
+
+
+
+
+

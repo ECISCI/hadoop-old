@@ -130,7 +130,7 @@
                                 <addClasspath>true</addClasspath>
                                 <useUniqueVersions>false</useUniqueVersions>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>com.hadoop.mapreduce.flowstatistics.FlowCount</mainClass>
+                                <mainClass>com.it521.hadoop.mapreduce.flowstatistics.FlowCount</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
