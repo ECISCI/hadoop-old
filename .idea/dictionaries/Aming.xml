@@ -16,12 +16,14 @@
       <w>chkconfig</w>
       <w>chown</w>
       <w>cnetos</w>
+      <w>cnzz</w>
       <w>crond</w>
       <w>crontab</w>
       <w>datanode</w>
       <w>devel</w>
       <w>dfsadmin</w>
       <w>dfshealth</w>
+      <w>dnode</w>
       <w>drwxr</w>
       <w>dskip</w>
       <w>dtar</w>
@@ -34,6 +36,7 @@
       <w>flowstatistics</w>
       <w>fsimage</w>
       <w>fstab</w>
+      <w>fstime</w>
       <w>getconf</w>
       <w>getd</w>
       <w>getu</w>
@@ -92,6 +95,7 @@
       <w>neusoft</w>
       <w>nginx</w>
       <w>nltp</w>
+      <w>nnode</w>
       <w>noarch</w>
       <w>nodemanager</w>
       <w>nodeps</w>
@@ -147,6 +151,7 @@
       <w>zcvf</w>
       <w>zkdata</w>
       <w>zkfc</w>
+      <w>zxid</w>
       <w>zxvf</w>
     </words>
   </dictionary>

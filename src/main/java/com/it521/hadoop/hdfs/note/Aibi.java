@@ -2,7 +2,7 @@ package com.it521.hadoop.hdfs.note;
 
 public class Aibi {
     /**
-     * @1hadoop datanode节点超时时间设置
+     * @1.hadoop datanode节点超时时间设置
      */
     /*
      *  datanode进程死亡或者网络故障造成datanode无法与namenode通信，
@@ -39,7 +39,7 @@ public class Aibi {
      * </property>
      */
     /**
-     * @2hadoop安装部署问题总结
+     * @2.hadoop安装部署问题总结
      */
     /*
      * hadoop的日志目录（/home/it521/app/it521-2.6.4/logs）
@@ -68,7 +68,7 @@ public class Aibi {
      *    3.datanode的身份标识跟namenode的集群身份标识不一致（删掉datanode的工作目录）
      */
     /**
-     * @3HDFS冗余数据块的自动删除
+     * @3.HDFS冗余数据块的自动删除
      */
     /*
      *  在日常维护hadoop集群的过程中发现这样一种情况：
@@ -109,7 +109,7 @@ public class Aibi {
      */
 
     /**
-     * @4namenode安全模式问题
+     * @4.namenode安全模式问题
      */
     /*
      * 当namenode发现集群中的block丢失数量达到一个阀值时，
@@ -132,7 +132,7 @@ public class Aibi {
      *
      */
     /**
-     * @5ntp时间同步服务
+     * @5.ntp时间同步服务
      */
     /*
      * 第一种方式:同步到网络时间服务器
@@ -223,7 +223,7 @@ public class Aibi {
      * 来关掉iptables服务后再尝试从ntp客户端的同步，如果成功，证明是防火墙的问题，需要更改iptables的设置。
      */
     /**
-     * @6机架感知配置
+     * @6.机架感知配置
      */
     /*
      * Hadoop机架感知
@@ -335,12 +335,12 @@ public class Aibi {
      *   at org.apache.it521.hdfs.server.datanode.BPServiceActor.connectToNNAndHandshake(BPServiceActor.java:221)
      *   at org.apache.it521.hdfs.server.datanode.BPServiceActor.run(BPServiceActor.java:660)
      *   at java.lang.Thread.run(Thread.java:722)
-     * 4.节点间距离计算
      *
+     * 4.节点间距离计算
      *  有了机架感知，NameNode就可以画出下图所示的datanode网络拓扑图。D1,R1都是交换机，最底层是datanode。则H1的rackid=/D1/R1/H1，H1的parent是R1，R1的是D1。这些rackid信息可以通过topology.script.file.name配置。有了这些rackid信息就可以计算出任意两台datanode之间的距离，得到最优的存放策略，优化整个集群的网络带宽均衡以及数据最优分配。
      *  distance(/D1/R1/H1,/D1/R1/H1)=0  相同的datanode
      *  distance(/D1/R1/H1,/D1/R1/H2)=2  同一rack下的不同datanode
      *  distance(/D1/R1/H1,/D1/R2/H4)=4  同一IDC下的不同datanode
      *  distance(/D1/R1/H1,/D2/R3/H7)=6  不同IDC下的datanode
-     * */
+     */
 }

@@ -95,7 +95,7 @@ public class HdfsClientDemo {
         Iterator<Map.Entry<String, String>> iterator = conf.iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, String> entry = iterator.next();
-            //conf加载的内容
+             //conf加载的内容
             L.i(TAG,entry.getValue() + "--" + entry.getValue());
         }
     }

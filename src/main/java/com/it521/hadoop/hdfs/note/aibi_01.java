@@ -5,7 +5,7 @@ package com.it521.hadoop.hdfs.note;
  * @描述 Hadoop在实际项目中的应用
  * @注意 一个名词cnzz 一般小型网站做数据统计都要向该网站发送数据信息
  */
-public class note01 {
+public class aibi_01 {
 
     /**
      * @1.用户点击案例
