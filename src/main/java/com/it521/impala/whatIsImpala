@@ -1,0 +1,12 @@
+
+##### 概述
+
+    impala 是一个实时的SQL查询工具,类似于Hive的操作方式,只不过是执行效率极高
+    号称大数据生态圈中执行效率最高的SQL软件
+    impala来自于cloudera,后来贡献给 apache
+    impala工作底层执行依赖于Hive与Hive公用一套元数据存储,在使用impala的时候
+    必须保证hive服务是正常可靠的,至少metastore开启
+    impala最大的跟Hive的不同在于,不在把SQL编译成MR程序执行,编译执行计划数
+    impala的Sql语法基本兼容Hive Sql
+    impala是一个适用于实时查询交互的Sql软件,Hive适用于批处理查询的Sql软件,通常是两个互相配合
+    impala 是基于Hive并使用内存进行计算,兼顾数据仓库,具有实时,批处理,多并发等优点

@@ -1,0 +1,41 @@
+##### Sqoop的导出
+
+##### 1.描述.默认模式导出HDFS数据导MySql
+    1.数据模拟（保证你的大数据分布式集群处于正常运行状态）
+    hadoop fs -mkdir /emp_data
+    hadoop fs -put emp_data.txt /emp_data
+
+    2.数据导出操作注意:
+    导出的目标表,需要自己手动提前创建,也就是Sqoop并不会帮我们创建复制表结构
+    导出有三种模式
+        2.1. 默认模式 目标表是空表,底层把数据一条条insert进去
+        2.2. 更新模式 底层是update语句
+        2.3. 调用模式 调用存储过程
+
+##### 2.导出脚本
+./sqoop export \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--table employee \
+--export-dir /emp_data/
+
+##### 3.相关参数配置
+    1.--input-fields-terminated-by '\t' (指定文件中的默认分隔符)
+
+    2.--columns (指定列的顺序,执行脚本如下)
+./sqoop export \
+--connect jdbc:mysql:/192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--table employee1 \
+--columns id,name,deg,salary,dept \
+--export-dir /emp_data/
+
+    3.export-dir (导出目录)
+    4.--input-null-string --input-null-non-string
+
+##### 5.更新导出
+    updateonly 只更新已经存在的数据,不会执行insert增加新的数据
+
+##### 6.更新导出(allowinsert模式)

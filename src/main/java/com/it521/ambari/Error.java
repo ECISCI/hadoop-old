@@ -23,7 +23,5 @@ public class Error {
      * 4. hdfs dfs  -chown admin:hdfs /user/admin
      *
      * 5. ambari-server start
-     *
-     *
      */
 }

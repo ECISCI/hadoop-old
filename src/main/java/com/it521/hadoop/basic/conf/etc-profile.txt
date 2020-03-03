@@ -1,0 +1,25 @@
+// ##### 注意以上在拷贝到/etc/profile文件中请把中文注释去掉
+
+// Java环境变量配置
+export JAVA_HOME=/usr/local/apps/jdk1.7.0_45
+
+export JRE_HOME=${JAVA_HOME}/jre
+
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+
+// Maven环境变量配置
+export MAVEN_HOME=/usr/local/apps/apache-maven-3.5.4
+
+// ant环境变量配置
+export ANT_HOME=/usr/local/apps/apache-ant-1.9.13
+
+// zookeeper环境变量配置
+export ZOOKEEPER_HOME=/usr/local/apps/zookeeper
+
+// findbugs环境变量配置
+export FINDBUGS_HOME=/usr/local/apps/findbugs-3.0.1
+
+// hadoop环境变量配置
+export HADOOP_HOME=/usr/local/hadoop/hadoop-2.6.4
+
+export PATH=${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${ANT_HOME}/bin:${FINDBUGS_HOME}/bin:${ZOOKEEPER_HOME}/bin:${HADOOP_HOME}/bin:$PATH

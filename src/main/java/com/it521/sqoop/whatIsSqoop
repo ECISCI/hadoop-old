@@ -1,0 +1,8 @@
+##### 什么是Sqoop
+
+    apache sqoop 是在Hadoop生态体系和RDBMS体系之间传送数据的一种工具,来自于Apache软件基金会提供
+    Sqoop 工作机制是将导入导出命令翻译成mapreduce程序来实现,在翻译出的Mapreduce,中主要对inputFormat和outputFormat进行定制
+    Hadoop生态系统包括:HDFS HIVE HBase
+    RDBMS体系包括 MySql Oracle Db2等
+    Sqoop 可以理解为: Sql到hadoop和Hadoop到Sql
+

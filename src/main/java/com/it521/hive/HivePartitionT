@@ -1,0 +1,29 @@
+
+##### 分区表操作
+
+##### 1.概述
+    在大数据中,最常用的一种思想就是分治,我们可以把大的文件切割划分一个个的小的文件
+    这样每次操作一个小的文件就会很容易了,同样的道理,在Hive当中也是支持这种思想的
+    就是我们可以把大的数据,按照每月,或者天进行切分成一个个的小文件,存放在不同的文件夹中
+
+##### 2.创建分区表的语法
+    create table score(s_id string,c_id string,s_score int)
+    partitioned by (month string) row format delimited fields terminated
+    by '\t';
+
+##### 3.创建一个表带多个分区
+    create table score(s_id string,c_id string,s_score int)
+    partitioned by (year string,month string,day string) row format delimited fields terminated
+    by '\t';
+
+##### 4.分区表的查询,多分区表联合查询使用(union all)
+    select * from score where month = '201806' union all select * from score where month = '201806'
+
+##### 5.查看分区
+    show partitions score(表明)
+
+##### 6.添加一个分区
+    alter table score add partition(month="201905")
+
+##### 7.删除分区
+    alter table score drop partition(month='201806')

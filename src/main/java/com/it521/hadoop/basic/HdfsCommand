@@ -1,0 +1,11 @@
+@author Ming
+
+##### Hdfs常用命令
+
+##### hdfs上传文件
+    hdfs fs -put mumu.avi /
+
+##### 查看根目录下的文件
+    hdfs fs -ls /
+
+##### 查看文件切块block

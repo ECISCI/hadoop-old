@@ -1,0 +1,4 @@
+
+##### Flume安装
+    tar -zxvf apache-flume-1.8.0-bin.tar.gz
+    进入flume的目录，修改conf下的flume-env.sh，在里面配置JAVA_HOME 完活

@@ -1,0 +1,25 @@
+##### Hive内部表
+
+##### 1.内部表的操作
+    创建表时,如果没有使用external关键字,则该表时内部表(managed table)
+    Hive中可以使用 array(集合) Hive可以使用Map(Java 的map集合)
+    Hive表字段之间的默认分隔符 /001
+
+##### 2.创建表并制定字段之间的分隔符为\t
+
+    create table if not exists stu2(id int,name string) row format delimited fields terminated by '\t';
+
+##### 3.创建表并制定表文件的存放路径
+    create table if not exists stu2(id int,name string) row format delimited fields terminated by '\t' location '/usr/stu2';
+
+##### 4.根据查询结果创建表
+    create table stu3 as select * from stu2; #通过复制表结构和表内容创建新表
+
+##### 5.根据已存在的表结构创建表
+    create table stu4 like stu;
+
+##### 6.查询表详细信息
+    desc formatted stu2
+
+##### 7.删除表
+    drop table stu4;

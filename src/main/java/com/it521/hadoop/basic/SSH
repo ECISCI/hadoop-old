@@ -1,0 +1,6 @@
+##### SSH 免密登录
+
+    1. cd ~
+    2. ssh-keygen
+    3. ssh-copy-id 主机名或IP映射
+    4. scp -r /usr/local/apps/jdk b3data-02:/usr/local/apps/

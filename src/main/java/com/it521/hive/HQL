@@ -1,0 +1,140 @@
+
+##### HQL
+
+##### 1.重命名表
+    alter  table old_table_name rename to new_table_name;
+    把表score4修改成score5
+    alter table score4 rename to score5;
+    
+##### 2.查询表结构
+    desc score5;
+    
+##### 3.添加列
+    alter table score5 add columns (mycol string, mysco int);
+    
+##### 4.更新列
+    alter table score5 change column mysco mysconew int;
+    
+##### 5.删除表
+    drop table score5;
+    
+##### 6.HIVE的SELECT
+      SELECT [ALL | DISTINCT] select_expr, select_expr, ...
+      FROM table_reference
+      [WHERE where_condition]
+      [GROUP BY col_list [HAVING condition]]
+      [CLUSTER BY col_list
+      | [DISTRIBUTE BY col_list] [SORT BY| ORDER BY col_list]
+      ][LIMIT number]
+     
+      1. order by 会对输入做全局排序,因此只有一个reducer,会导致当输入规模较大时,需要
+      较长的计算时间
+      2. sort by不是全局排序,其在数据进入reducer前完成排序,因此如果用sort by进行排
+      序,并且设置mapred.reduce.tasks>1,则sort by只保证每个reducer的输出有序,不保证全
+      局有序
+      3. distribute by(字段)根据指定的字段将数据分到不同的reducer,且分发算法是hash散列。
+      4. cluster by(字段) 除了具有distribute by的功能外,还会对该字段进行排序.
+      因此,如果distribute 和sort字段是同一个时,此时, cluster by = distribute by +
+      sort by
+
+##### 7.查询语法
+    1.全表查询
+    select * from score;
+
+    2.选择特定列
+    select s_id ,c_id from score;
+
+    3.列别名
+    select s_id as myid ,c_id from score;
+
+    4.求总行数(count)
+    select count(1) from score;
+
+    5.求分数的最大值（max）
+    select max(s_score) from score;
+
+    6.求分数的最小值(min)
+    select min(s_score) from score;
+
+    7.求分数的总和（sum）
+    select sum(s_score) from score;
+
+    8.求分数的平均值（avg）
+    select avg(s_score) from score;
+
+##### 8.limit语句,典型的查询会返回多行数据,LIMIT子句用于限制返回的行数
+    select * from score limit 3;
+
+##### 9.Where语句
+    select * from score where s_score > 60;
+
+##### 10.LIKE和RLIKE
+    1.使用LIKE运算选择类似的值 2.选择条件可以包含字符或数字
+    %代表零个或多个字符(任意个字符)
+    _代表一个字符
+
+    RLIKE子句是Hive中这个功能的一个扩展,其可以通过Java的正则表达式这个更强大语言来置顶匹配条件
+
+    1.查询以8开头的所有成绩
+    select * from score where s_score like '8%';
+
+    2.查找第二个数值为9的所有成绩数据
+    select * from score where s_score like '_9%';
+
+    3.查找s_id中含1的数据
+    select * from score where s_id rlike '[1]'; #  like '%1%'
+
+##### 11.逻辑运算符 and or not
+    1.查询成绩大于80,并且s_id是01的数据
+    select * from score where s_score >80 and s_id = '01';
+
+    2.查询成绩大于80,或者s_id 是01的数
+    select * from score where s_score > 80 or s_id = '01';
+
+    3.查询s_id 不是 01和02的学生
+    select * from score where s_id not in ('01','02');
+
+
+##### 12.分组 group by GROUP BY语句通常会和聚合函数一起使用，按照一个或者多个列队结果进行分组，然后对每个组执行聚合操作
+    1.计算每个学生的平均分数
+    select s_id ,avg(s_score) from score group by s_id;
+
+    2.计算每个学生最高成绩
+    select s_id ,max(s_score) from score group by s_id;
+
+##### 13.HAVING 语句
+    having与where不同点
+    1. where针对表中的列发挥作用,查询数据;having针对查询结果中的列发挥作用,筛选数据
+    2. where后面不能写分组函数,而having后面可以使用分组函数
+    3. having只用于group by分组统计语句
+
+    1.求每个学生的平均分数
+    select s_id ,avg(s_score) from score group by s_id;
+
+    2.求每个学生平均分数大于85的人
+    select s_id ,avg(s_score) avgscore from score group by s_id having avgscore > 85;
+
+#### 14.JOIN 语句
+    Hive支持通常的SQL JOIN语句,但是只支持等值连接,不支持非等值连接
+    1.查询分数对应的姓名
+    select s.s_id,s.s_score,stu.s_name,stu.s_birth  from score s  join student stu on s.s_id = stu.s_id;
+
+#### 15.表的别名
+     好处使用别名可以简化查询  使用表名前缀可以提高执行效率
+
+     1.合并老师与课程表
+     select * from teacher t join course c on t.t_id = c.t_id;
+
+#### 16.内连接
+    1.只有进行连接的两个表中都存在与连接条件相匹配的数据才会被保留下来
+    select * from teacher t inner join course c on t.t_id = c.t_id;
+
+#### 17.左外连接
+    1.JOIN操作符左边表中符合WHERE子句的所有记录将会被返回,查询老师对应的课程
+    select * from teacher t left join course c on t.t_id = c.t_id;
+
+##### 18.右外连接
+    1.JOIN操作符右边表中符合WHERE子句的所有记录将会被返回
+    select * from teacher t right join course c on t.t_id = c.t_id;
+
+   

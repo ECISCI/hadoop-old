@@ -1,0 +1,33 @@
+@author 玛丽莲梦明
+
+
+##### 1.Hive分桶
+    分桶,就是将数据按照置顶的字段进行划分到多个文件当中去,分桶是MapReduce中的分区
+
+##### 2.开启Hive的分桶功能（hive命令行）
+    set hive.enforce.bucketing=true; (这个值默认是false)
+
+##### 3.设置Reduce值(Hive命令行)
+    set mapreduce.job.reduces=3;
+
+##### 4.创建分桶表（Hive命令行）
+        create table course(c_id string,c_name string,t_id string)
+        clustered by(c_id) into 3 buckets row format delimited fields
+        terminated by '\t';
+
+##### 5.给分桶表加载数据
+    注意###
+    桶表的数据加载,由于桶表的数据加载通过hdfs dfs-put文件或通过load data均不好使
+    只能通过insert overwrite
+    创建普通表,通过insert overwrite的方式将普通表的数据通过查询的方式加载到桶表中去
+
+##### 6.创建普通表
+    create table course_common(c_id string,c_name string,t_id string) row format
+    delimited fields terminated by '\t';
+
+##### 7.普通表中加载数据
+      load data local inpath '/usr/local/apps/hivedatas/course.csv' into table
+      course_common;
+
+##### 8.通过insert,overwrite给桶表中加载数据(这个过程执行的是mapreduce)
+      insert overwrite table course select * from course_common cluster by(c_id);

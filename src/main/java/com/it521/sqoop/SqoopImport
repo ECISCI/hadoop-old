@@ -1,0 +1,176 @@
+##### sqoop 导入
+
+##### 1.将userdb数据库下的emp表导入Hdfs（导入Hdfs默认分隔符为逗号）
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--target-dir /appendresult \
+--table emp --m 1
+
+##### 2.导入Hdfs修改默认分隔符为'\t'
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--target-dir /appendresult \
+--fields-terminated-by '\t' \
+--table emp --m 1
+
+##### 3. 导入Hdfs 运行两条mr 根据ID做切分(必须指定切分条件,否则m值大于1报错)
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--target-dir /appendresult \
+--fields-terminated-by '\t' \
+--split-by id \
+--table emp --m 2
+
+##### 4.需要注意
+    1.mySql地址不要使用localhost
+    2.如果不指定导入到Hdfs默认分隔符为逗号,可以通过参数 --fields-terminated-by'\t' 指定具体的分隔符
+    3.如果表的数据比较大,可以并行启动多个map task进行操作, 如果表没有主键, 请指定根据哪个字段进行切分
+
+##### 5.Sqoop全量导入MySql表中数据到Hive中 将关系型数据的表结构复制到hive中 注意是表结构
+./sqoop create-hive-table \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--table emp_add \
+--username root \
+--password root \
+--hive-table myhive.emp_add_sp
+
+##### 6.将数据导入到Hive表中(基于上一条脚本) myhive是Hive中的数据库名称 myhive.emp_add_sp 是在myhive数据库中对应的表名emp_add_sp
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--table emp_add \
+--hive-table myhive.emp_add_sp \
+--hive-import \
+--m 1
+
+##### 7.直接导入数据到hive中,包括表结构和数据
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--table emp_conn \
+--hive-import \
+--m 1 \
+--hive-database myhive;
+
+##### 8.导入表数据子集(Where过滤)
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--where "city ='sec-bad'" \
+--target-dir /wherequery \
+--table emp_add --m 1
+
+#### 9.导入数据子集(query查询)
+    1.使用query sql语句来进行查找不能加参数 --table
+    2.并且必须添加where条件
+    3.并且where条件后面必须带一个$CONDITIONS字符串
+    4.并且这个Sql语句必须用单引号,不能使用双引号
+    5.sqoop命令中, --split-by id 通常配合 -m 10参数使用,用于指定根据哪个字段进行划分并启动多少个maptask
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--target-dir /wherequery12 \
+--query 'select id,name,deg from emp WHERE  id>1203 and $CONDITIONS' \
+--split-by id \
+--fields-terminated-by '\t' \
+--m 2
+
+##### 10.增量导入
+    --check-column
+    用来指定一些列,这些列在增量导入时,用来检查这些数据是否作为增量数据进行导入,和关系型数据库中的自增字段及时间戳类似
+    注意:###这些被指定的列的类型不能使用任意字符串类型,如char varchar等类型都是不可以的
+    同时 --check-column可以去指定多个列
+
+    --incremental(mode)
+    append:追加,比如大于last-value 指定的值之后的记录进行追加导入,lastmodified:最后的修改时间,追加 last-value指定的日期之后的记录
+
+    --last-value(value)
+    指定从上次导入后的最大值(大于该指定的值),也可以自己设定某一值
+
+##### 11.Append模式增量导入01.根据上一次导入的最后id值,这个值是int类型,这是将表数据导入Hdfs的脚本命令
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--target-dir /appendresult \
+--table emp --m 1
+
+##### 12.Append模式增量导入02.根据上一次导入的最后id值,这个值是int类型
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--table emp --m 1 \
+--target-dir /appendresult \
+--incremental append \
+--check-column id \
+--last-value 1205
+
+##### 13.LastModified模式增量导入01
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--target-dir /lastmodifiedresult \
+--table customertest --m 1
+
+##### 14.LastModified模式增量导入02
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--table customertest \
+--target-dir /lastmodifiedresult \
+--check-column last_mod \
+--incremental lastmodified \
+--last-value "2020-02-17 21:26:44" \
+--m 1 \
+--append
+
+##### 15.增量输入导入,所谓的增量数据指定是上次至今中间新增加的数据
+    Sqoop 支持两种模式的增量导入
+    1.append 根据数值类型的子墩进行追加导入,大于指定的last-value
+    2.last-modified 根据时时间戳类型的字段进行追加,###大于等于指定的lastvalue
+
+    在lastmodfied模式下还有两种模式
+    1.append
+    只会增加增量数据导一个新的文件中,并且会产生数据的重复问题,因为默认是从指定的,last-value大于等于其值得数据开始导入
+    2.merge-key
+    把增量的数据合并到一个文件中,除了追加增量数据之外,如果之前的数据有变化修改也可以
+    进行修改操作,底层相当于进行了一次完整的MR作业,数据不会重复
+
+##### 16.lastmodfied.merge-key
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--table customertest \
+--target-dir /lastmodifiedresult \
+--check-column last_mod \
+--incremental lastmodified \
+--last-value "2020-02-17 21:26:45" \
+--m 1 \
+--merge-key id
+
+##### 17.lastmodfied.append
+./sqoop import \
+--connect jdbc:mysql://192.168.25.142:3306/userdb \
+--username root \
+--password root \
+--table customertest \
+--target-dir /lastmodifiedresult \
+--check-column last_mod \
+--incremental lastmodified \
+--last-value "2020-02-17 21:26:45" \
+--m 1 \
+--append

@@ -1,0 +1,64 @@
+#####1.基本概念
+      1. 角色  领导者(Leader) 学习者 (Learner)(Follower,ObServer) 客户端(client)
+      2. 设计目的
+           2.1 最终一致性 Client不论连接到那个Server 展示给它的都是同一个视图,这是zk最重要的功能
+           2.2 可靠性 具有简单 健壮 良好的性能,如果消息被一台服务器接受,那么它将被所有服务器接受
+           2.3 实时性,zk保证客户端在一个时间间隔范围内获得服务器的更新信息或者服务器失效信息
+           但由于网络延时等原因,zk不能保证两个客户端能同时得到刚刚更新的数据,如果需要最新数据,应盖
+           在读数据之前调用sync()接口
+           2.4 等待无关(wait-free) 慢的或者失效的client不得不干预快速的client的请求,使每个client都能有效等待
+           2.5 原子性 更新只能成功或者失败,没有中间状态
+           2.6 顺序性 包括 全局有序 和 偏序 两种顺序
+
+##### 2.zk工作原理
+
+       zk的核心是原子广播,这个机制保证了各个server之间的同步,实现这个机制的协议叫做Zab协议
+     
+       Zab协议有两种模式  恢复模式(选主) 广播模式(同步)
+     
+       当服务启动或者在领导者崩溃后,zab就进入了恢复模式,当领导者被选举出来,且大多数Server完成和Leader的状态同步
+     
+       恢复模式结束 状态同步保证leader和server具有相同的的系统状态
+     
+       为了保证事务的顺序一致性,zk采用了递增的事务ID zxid 来标识事务
+
+      2.1.每个Server在工作过程中有三种状态
+        LOOKING 当前Server不知道Leader是谁
+        LEADING 当前Server即为选举出来的leader
+        FOLLOWING Leader已经选举出来,当前Server与之同步
+      2.2.选主流程
+      当Leader崩溃或者Leader失去大多数的Follower这个时候zk进入恢复模式
+     
+      2.3.zk选举算法有两种
+      一种是基于basic paxos实现的
+      另一种是基于fast paxos算法实现的
+      系统默认算法为fast paxos
+
+      2.4.basic paxos fast paxos (书73页)
+
+##### 3.ZK工作流程
+      3.1.Leader工作流程
+      1. 恢复数据
+      2. 维持与Learner的心跳,接收Learner请求并判断Learner的请求消息类型
+      3. Learner的消息类型主要有PING消息,REQUEST(request)消息,ACK消息 REVALIDATE消息
+
+      3.2.根据不同的消息类型,进行不同的处理
+        1.PING消息是指Learner的心跳消息
+        2.REQUEST消息是Follower发送的提议信息,包括写请求及同步请求
+        3.ACK消息是Follower对提议的回复,超过半数的Follower通过则commit该提议
+        4.REVALIDATE 是用来延长SESSION有效时间
+
+      3.3.Follower工作流程
+        Follower主要有4个功能
+        1.向Leader发送请求(PING,REQUEST,ACK REVALIDATE)
+        2.接收Leader消息并处理
+        3.接收client的请求,如果为写请求,发送给Leader进行投票
+        4.返回Client结果
+
+      3.4.Follower的消息循环处理如下几种来自Leader的消息
+        1.PING心跳消息
+        2.PROPOSAL 消息 Leader发起的提案,要求Follower投票
+        3.COMMIT 消息:服务端最新一次提案的信息
+        4.UPTODATE 消息: 表名同步完成
+        5.REVALIDATE 消息:根据Leader的REVALIDATE结果,关闭revalidate的session还是允许其接受消息
+        6.SYNC 消息:返回SYNC结果到客户端,这个消息最初由客户端发起,用来强制得到最新的更新

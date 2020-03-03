@@ -1,0 +1,34 @@
+
+##### Hive外部表
+
+##### 1.外部表说明
+    外部表因为是指定其他的hdfs路径的数据加载到表当中来
+    所以Hive表会认为自己不完全独占这份数据,所以删除Hive表的时候,数据仍然存放在Hdfs中,不会删掉
+
+##### 2.内部表和外部表的使用场景
+    每天将收集到的网络日志定期流入Hdfs文本文件,在外部表(原始日志表)的基础上做大量的统计分析
+    用到中间表,结果表,使用内部表存储,数据通过SELECT + INSERT进入背部表
+
+##### 3.操作案例
+    分别创建老师与学生外部表,并向表中加载数据
+    1.创建老师表
+    create external table teacher(t_id string,t_name string) row format delimited fields terminated by '\t';
+
+##### 4.上传文件到HDFS上（通过文件上传,在Linux命令上操作）
+    hdfs dfs -put teacher.txt /user/hive/warehouse/myhive.db/teacher
+
+##### 5.加载数据(在Hive命令行上操作)
+    load data local inpath '/usr/local/apps/student.csv' into table student;
+
+##### 6.加载数据并覆盖已有数据(在Hive命令上操作)
+    load data local inpath '/usr/local/apps/student.csv' overwrite into table student;
+
+##### 7.从Hdfs文件系统向表中加载数据(需要提前将数据上传到hdfs文件系统)
+
+    cd /usr/local/apps/hivedatas
+
+    hdfs dfs -mkdir -p /hivedatas
+
+    hdfs -dfs -put teacher.csv /hivedatas/
+
+    load data inpath '/hivedatas/teacher.csv' into table teacher;

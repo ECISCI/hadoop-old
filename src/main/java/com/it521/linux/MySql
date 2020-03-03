@@ -1,0 +1,32 @@
+
+##### 1.检查本地是否已安装MySql
+    yum list installed | grep mysql
+    如果已安装卸载已安装的mysql
+    卸载命令 yum -y remove mysql-libs.x86_64
+
+##### 2.安装mysql,并做相关配置
+    1.下载镜像源
+    wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
+
+    2.安装用来配置mysql的yum源的rpm包
+    yum -y install mysql57-community-release-el7-10.noarch.rpm
+
+    3.安装mysql
+    yum  -y install mysql-community-server
+
+    4.启动mySql
+    systemctl start mysqld.service   systemctl status mysqld.service(状态) systemctl stop mysqld.service(关闭)
+
+    5.查看mysql生成的临时root密码 用这个密码登录mysql
+    grep 'temporary password' /var/log/mysqld.log
+
+    6.修改root密码
+    ALTER USER USER() IDENTIFIED BY 'new password';  (这个密码最好设置复杂一点)
+
+##### 3.开放虚拟机mysql
+    1.update user set host='%' where user='root';
+    2.grant all privileges on *.* to 'root'@'%' identified by 'Aming198962';
+    3.flush privileges;
+
+##### 4.查看Mysql编码
+    show variables like 'character%';

@@ -12,8 +12,8 @@ import java.util.Map;
 
 /**
  * @author Ming
- * @描述 JavaAPI操作Hdfs文件系统
- * @注意 配置windows Hadoop HADOOP_HOME
+ * @描述.JavaAPI操作Hdfs文件系统
+ * @注意.配置windows Hadoop HADOOP_HOME
  */
 public class HdfsClientDemo {
 
@@ -44,7 +44,7 @@ public class HdfsClientDemo {
 
 
     /**
-     * @描述 初始化Hdfs参数
+     * @描述.初始化Hdfs参数
      */
     public static void init() throws URISyntaxException, IOException, InterruptedException {
 
@@ -53,15 +53,15 @@ public class HdfsClientDemo {
         conf.set("fs.defaultFs", HDFS_URI);
 
         /**
-         * @解释 拿到一个文件系统操作的客户端实例对象
+         * @解释.拿到一个文件系统操作的客户端实例对象
          *
-         * @注意 客户端去操作hdfs时, 是有一个用户身份的
+         * @注意.客户端去操作hdfs时,是有一个用户身份的
          *
-         * @1 默认情况下 hdfs客户端api会从jvm中获取一个参数来作为自己的用户身份
+         * @1.默认情况下,hdfs客户端api会从jvm中获取一个参数来作为自己的用户身份
          *
-         * @2 也可以在构造客户端fileSystem对象时, 通过参数传递进去
+         * @2.也可以在构造客户端fileSystem对象时,通过参数传递进去
          *
-         * @提醒 那种方法都可以, 推荐使用第二种方法, 简单明了
+         * @提醒.哪种方法都可以,推荐使用第二种方法,简单明了
          */
         fileSystem = FileSystem.get(new URI(HDFS_URI), conf, USER);
 
@@ -69,7 +69,7 @@ public class HdfsClientDemo {
 
     /**
      * @throws Exception 错误信息
-     * @描述 将D盘下文件上传到hdfs的根目录
+     * @描述.将D盘下文件上传到hdfs的根目录
      */
     public static void testUpLoad() throws Exception {
 
@@ -79,7 +79,7 @@ public class HdfsClientDemo {
          */
         Thread.sleep(2000);
         /**
-         * @解释 : 将D盘下的access.log文件拷贝到hdfs根目录下
+         * @解释.将D盘下的access.log文件拷贝到hdfs根目录下
          */
         fileSystem.copyFromLocalFile(new Path("D:/access.log"), new Path("/access.log.copy"));
         fileSystem.close();
@@ -101,7 +101,7 @@ public class HdfsClientDemo {
     }
 
     /**
-     * @描述 创建目录
+     * @描述.创建目录
      */
     public static void testMakdir() throws Exception {
         boolean mkdirs = fileSystem.mkdirs(new Path("/aaa/bbb"));
@@ -109,7 +109,7 @@ public class HdfsClientDemo {
     }
 
     /**
-     * @描述 删除
+     * @描述.删除
      */
     public static void testDelete() throws Exception {
         boolean delete = fileSystem.delete(new Path("/aaa"), true);//true， 递归删除
@@ -127,7 +127,7 @@ public class HdfsClientDemo {
 
             L.e(TAG,fileStatus.getPath() + ":::::" + fileStatus.toString());
         }
-        //会递归找到所有的文件
+        // 递归找到所有的文件
         RemoteIterator<LocatedFileStatus> listFiles = fileSystem.listFiles(new Path("/"), true);
         while (listFiles.hasNext()) {
             LocatedFileStatus next = listFiles.next();

@@ -1,0 +1,58 @@
+@author 玛丽莲梦明
+##### 编译安装格式化
+
+##### (1)所需软件
+    1. apache-ant-1.9.4-bin.tar.gz
+    2. findbugs-3.0.0.tar.gz
+    3. protobuf-2.5.0.tar.gz
+    4. apache-maven-3.0.5-bin.tar.gz
+    5. hadoop-2.4.0-src.tar.gz(hadoop源码包)
+
+##### (2)软件安装
+    1. apache-ant       <https://blog.csdn.net/biexf/article/details/6000968?utm_source=blogxgwz0>
+    2. findbugs         <https://blog.csdn.net/hlx20080808/article/details/80061282>
+    3. protobuf         <https://blog.csdn.net/u011596455/article/details/64622830>
+    4. apache-maven     <https://blog.csdn.net/l05199179/article/details/78982212>
+    注意: maven要配置阿里云镜像,网站找很多
+
+##### (3)必要yum(必须连接外网)
+    1. yum install -y gcc-c++
+    2. yum install cmake
+    3. yum install openssl-devel
+    4. yum install ncurses-devel
+
+##### (4)解压缩Hadoop源码包到指定目录下
+    tar -zxvf hadoop-2.4.0-src.tar.gz
+
+##### (5)编译hadoop
+    1. cd hadoop-2.4.0-src
+    2. mvn clean install -DskipTests (这个过程会很漫长很漫长联网下载好多好多东西)
+    3. mvn package -Pdist,native -DskipTests -Dtar (上一步完成,开始编译,这个过程也很漫长)
+    4. BUILD SUCCESS 出现这个表示编译成功
+
+
+##### (6)集群配置及格式化
+    1. 配置hadoop环境变量(与配置Java环境变量一致)
+    2. 修改配置文件进入暗转目录  /usr/local/hadoop/hadoop-2.6.4/etc/hadoop
+    3. hadoop-env.sh (配置JAVA_HOME)
+    4. 修改文件参照conf包下的 .xml文件 (注意:mapred-site.xml不存在,只有一个 .template文件,需要将此文件重命名)
+    5. 注意:更改以上任何一个文件都不允许出现中文,否则在hdfs格式化的时候会报错
+    6. hdfs namenode -format (格式化Hadoop,集群中每台机器都要做)
+    7. 格式化过程中出现Storage directory /home/hadoop/hadoop-2.4.1/tmp/dfs/has been successfully formatted证明格式化成功
+
+##### (7) 启动hadoop
+
+    1. 进入Hadoop安装的sbin目录下
+        1.1 namenode: ./start-dfs.sh  ./start-yarn.sh
+        1.2 datanode: ./hadoop-daemon.sh start datanode
+
+        外网访问 192.168.25.139:50070
+
+
+##### (8)查看日志
+    下面这段代码是hadoop在启动namenode或datanode时自动输出的一段代码
+    starting datanode, logging to /usr/local/hadoop/hadoop-2.6.4/logs/hadoop-root-datanode-hadoop04.out
+
+    cd /usr/local/hadoop/hadoop-2.6.4/logs/
+    查看以.log结尾的文件  cat xxx.log
+
