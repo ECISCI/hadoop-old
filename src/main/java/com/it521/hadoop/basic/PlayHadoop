@@ -13,7 +13,7 @@
     2. findbugs         <https://blog.csdn.net/hlx20080808/article/details/80061282>
     3. protobuf         <https://blog.csdn.net/u011596455/article/details/64622830>
     4. apache-maven     <https://blog.csdn.net/l05199179/article/details/78982212>
-    注意: maven要配置阿里云镜像,网站找很多
+    注: maven要配置阿里云镜像,网站找很多
 
 ##### (3)必要yum(必须连接外网)
     1. yum install -y gcc-c++

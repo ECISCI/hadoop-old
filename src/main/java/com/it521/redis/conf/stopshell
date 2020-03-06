@@ -1,0 +1,17 @@
+cd redis01
+./redis-cli shoutdown
+cd ..
+cd redis02
+./redis-cli shoutdown
+cd ..
+cd redis03
+./redis-cli shoutdown
+cd ..
+cd redis04
+./redis-cli shoutdown
+cd ..
+cd redis05
+./redis-cli shoutdown
+cd ..
+cd redis06
+./redis-cli shoutdown

@@ -9,17 +9,22 @@
       <w>blockmap</w>
       <w>centos</w>
       <w>cloudera</w>
+      <w>configcmd</w>
       <w>customertest</w>
       <w>dflume</w>
       <w>docx</w>
+      <w>emerg</w>
       <w>hivedatas</w>
       <w>ifconfig</w>
+      <w>imap</w>
       <w>inpath</w>
       <w>itming</w>
+      <w>jedis</w>
       <w>lastmodfied</w>
       <w>lastmodified</w>
       <w>lastmodifiedresult</w>
       <w>lastvalue</w>
+      <w>makecmd</w>
       <w>maptask</w>
       <w>maxpenalty</w>
       <w>mycol</w>
@@ -28,11 +33,18 @@
       <w>mysconew</w>
       <w>netcat</w>
       <w>nutch</w>
+      <w>pcre</w>
+      <w>rubygems</w>
+      <w>shoutdown</w>
       <w>sinkgroups</w>
       <w>spooldir</w>
       <w>sqoopresult</w>
+      <w>startshell</w>
+      <w>stopshell</w>
+      <w>sysoev</w>
       <w>systemctl</w>
       <w>tailout</w>
+      <w>trib</w>
       <w>updateonly</w>
       <w>userdb</w>
       <w>wherequery</w>

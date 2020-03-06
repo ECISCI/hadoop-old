@@ -1,0 +1,49 @@
+##### nginx虚拟主机
+
+##### 1.配置虚拟主机,通过监听端口区分不同的访问
+        cd /usr/local/nginx/conf
+        vim nginx.conf
+
+        如果配置虚拟主机,需要对nginx.conf进行编辑,但编辑nginx.conf在linux命令行下是非常不方便的
+        这里推荐使用 EditPlus文本编辑器编辑nginx.conf
+
+        打开EditPlus(EditPlus随处可下载,随便下载一个最新版本的就可以了)
+        点击File -->FTP-->FTP Settings
+
+        配置FTP
+            Description 给你连接的linux系统FTP起个名字<这里取名为nginx>
+            server 连接到Linux的ip<即Linux的ip地址>
+            username 登录linux的用户名
+            password 登录linux的密码
+            点开Advanced Options Encryption选项选择 sftp port 填入22(也可以不输入,默认就是22)
+            点击OK结束Advanced Options
+            点击OK关闭当前FTP Setting页面 在左侧Directory,选择设置好的连接即可
+
+##### 2.编辑 nginx.conf
+        这里最主要的就是编辑server节点
+
+        server节点参数说明
+            listen nginx监听的端口
+            server_name
+            root
+            index
+##### 3.增加Server节点（通过端口区分不同的访问）
+    注意:!!! nginx: [error] open() "/var/run/nginx/logs/nginx.pid" failed (2: No such file or directory)
+    当你进入这个目录的时侯会发现目录中的文件夹都在, 但nginx.pid文件不在
+    为什么nginx.pid文件不在？因为这个文件只有的nginx启动的时候才会生成的临时文件,关闭nginx或者重启都会消失
+
+    解决办法
+        1.进入 /usr/local/nginx/conf 编辑nginx.conf文件,找到pid项将注释去掉
+        2.启动nginx(注意要保证nginx是启动状态)
+        3.EditPlus编辑server节点, 重新reload就不会报这种错误
+
+    3.1.拷贝server节点
+    3.2.粘贴在当前目录下
+    3.3.修改listen 81
+    3.4.连接虚拟机 将/usr/local/nginx/html 复制一份到当前目录 cp -r html/ html81
+    3.5.修改html81欢迎页里面的内容,区分与80的页面即可
+    3.6.重新加载配置文件让你生效 sbin/nginx -s reload
+
+    测试
+    访问 http://192.168.25.129:81/ 会出现你编辑的html81下的index.html样式
+    访问成功！ 通过端口区分不同的虚拟主机

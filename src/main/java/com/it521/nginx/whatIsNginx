@@ -1,0 +1,70 @@
+
+##### 1.nginx简介
+    Nginx是一款高性能http服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器
+    由俄罗斯的程序设计师IgorSysoev所开发
+    官方测试nginx能够支撑5万并发链接并且cpu内存等资源消耗非常低运行非常稳定
+
+##### 2.nginx的应用场景
+    2.1.http服务器 Nginx是一个Http服务可以独立提供http服务可以做网页静态服务器
+    2.2.虚拟主机, 可以实现在一台服务器虚拟出多个网站, 例如个人网站使用的虚拟主机
+    2.3.反向代理 负载均衡当网站访问量达到一定程度后单台服务器不能满足用户的请求时
+        需要多台服务器集群,可以使用nginx做反向代理,并且多台服务器可以平均分担负载
+        不会因为某台服务器负载高宕机而某台服务器闲置的情况
+
+##### 3.nginx安装
+
+    注意:.nginx是C语言编写的linux版只提供源代码,所以安装nginx需要编译
+    扩展:nginx不像redis一样可以直接执行makecmd,需要预先执行configcmd
+
+
+    3.1.
+    3.2.nginx编译需要安装gcc环境
+        yum install -y gcc-c++
+    3.3.PCRE(第三方开发包) PCRE是一个perl库包括perl兼容的正则表达式库,nginx的http模块使用pcre来解析正则表达式
+        yum install -y pcre pcre-devel
+    3.4.zlib(第三方开发包)zlib库提供了很多压缩和解压缩的方式,nginx使用zlib对http包的内容进行 gzip
+        yum install -y zlib zlib-devel
+    3.5.openssl(第三方开发包) OpenSSL是一个强大的安全套接字层密码库,囊括主要的密码算法,常用的密钥和证书封装管理功能
+    及SSL协议,并提供丰富的应用程序供测试或其他目的使用,nginx不仅支持http协议还支持https(即在ssl协议上传输http)
+        yum install -y openssl openssl-devel
+
+    3.6.在根目录下创建一个apps文件夹,将nginx压缩包上传到该文件夹下
+        3.6.1. 解压缩 tar -zxvf nginx-1.8.0.tar.gz
+        3.6.2. 进入解压缩后的nginx目录 cd nginx-1.8.0
+        3.6.3. 编译nginx 执行conf目录下的nginxConf脚本
+        3.6.4. 脚本中 prefix=/usr/local/nginx 指定nginx的安装目录 如果该目录下此前有nginx文件夹,请将该文件夹提前删除
+        3.6.5. 执行config cmd之后会在nginx目录下出现makefile可编译文件,这样就可以执行make
+
+    3.6.7. 编译  make
+    3.6.8. 安装  make install
+
+##### 4.nginx目录说明
+    4.1. 进入nginx安装目录
+    4.2. conf目录 配置文件 <核心为nginx.config文件,之后的测试都需要在这个文件上做>
+    4.3. html根目录欢迎页 存放静态资源
+    4.4. sbin 是一个可执行的nginx服务
+
+##### 5.启动nginx
+    5.1.进入nginx安装目录sbin目录  ./nginx
+        nginx: [emerg] mkdir() "/var/temp/nginx/client" failed (2: No such file or directory)
+        出现如上描述证明启动失败
+
+        需要创建目录 mkdir  /var/temp/nginx -p
+
+    5.2.再次启动
+    ./nginx 没有提示(在Linux中没有提示就是最好的)
+    ps aux|grep nginx 查看nginx进程
+
+    root      19485  0.0  0.0  23852   796 ?        Ss   22:51   0:00 nginx: master process ./nginx
+    nobody    19486  0.0  0.0  24280  1388 ?        S    22:51   0:00 nginx: worker process
+    证明启动成功
+
+    5.3 外部访问,直接访问 192.168.25.129（虚拟机ip地址） nginx默认为80端口 (关闭防火墙哦)
+    浏览器出现 welcome to nginx证明成功
+
+##### 6.停止nginx服务
+        6.1.进入nginx安装目录
+        6.2.第一种关闭方法 sbin/nginx -s stop (注意一定要加上-s)
+        6.3.第二种关闭方法 sbin/nginx -s quit (一般说这种方式更好,具体哪好我也不清楚)
+
+##### 7.

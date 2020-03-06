@@ -1,0 +1,44 @@
+
+worker_processes  1;
+
+pid        logs/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+
+
+
+   # nginx proxy
+	upstream sina{
+		# 请求转发 实现负载均衡 一人一次
+		# weight 是权重增加访问的概率
+		server 192.168.25.129:8081;
+		server 192.168.25.129:8082 weight=2;
+	}
+
+    server {
+        listen       80;
+        server_name  www.sina.com;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            proxy_pass   http://sina;
+            index  index.html index.htm;
+        }    
+    }
+}

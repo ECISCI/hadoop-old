@@ -2,13 +2,13 @@
 ##### 需要7台虚拟机并保证每台虚拟机上有hadoop环境
 
     主机名            ip            所需软件                    运行进程
-    hadoop01  192.168.25.136      jdk,it521         namenode,DFSZKFailoverController(zkfc)
-    hadoop02  192.168.25.133      jdk,it521         namenode,DFSZKFailoverController(zkfc)
-    hadoop03  192.168.25.134      jdk,it521         ResourceManager
-    hadoop04  192.168.25.135      jdk,it521         ResourceManager
-    hadoop05  192.168.25.137      jdk,it521,zk      DataNode、NodeManager、JournalNode、QuorumPeerMain
-    hadoop06  192.168.25.138      jdk,it521,zk      DataNode、NodeManager、JournalNode、QuorumPeerMain
-    hadoop07  192.168.25.139      jdk,it521,zk      DataNode、NodeManager、JournalNode、QuorumPeerMain
+    hadoop01  192.168.25.136      jdk,hadoop         namenode,DFSZKFailoverController(zkfc)
+    hadoop02  192.168.25.133      jdk,hadoop         namenode,DFSZKFailoverController(zkfc)
+    hadoop03  192.168.25.134      jdk,hadoop         ResourceManager
+    hadoop04  192.168.25.135      jdk,hadoop         ResourceManager
+    hadoop05  192.168.25.137      jdk,hadoop,zk      DataNode、NodeManager、JournalNode、QuorumPeerMain
+    hadoop06  192.168.25.138      jdk,hadoop,zk      DataNode、NodeManager、JournalNode、QuorumPeerMain
+    hadoop07  192.168.25.139      jdk,hadoop,zk      DataNode、NodeManager、JournalNode、QuorumPeerMain
     
 ##### 2.集群搭建, 首先需要7台干净的虚拟机
     1. 首选需要7台干净的虚拟机(虚拟机中需要有Java环境)
