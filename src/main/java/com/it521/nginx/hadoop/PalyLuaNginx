@@ -1,0 +1,46 @@
+
+##### 1.yum -y install gcc perl pcre-devel openssl openssl-devel
+
+
+##### 2.上传 LuaJIT-2.0.4.tar.gz 并安装LuaJIT
+        tar -zxvf LuaJIT-2.0.4.tar.gz -C /usr/local/src/
+        cd /usr/local/src/LuaJIT-2.0.4/
+        make && make install PREFIX=/usr/local/luajit
+
+##### 3.设置LuaJIT环境变量
+        vim /etc/profile
+        export LUAJIT_LIB=/usr/local/luajit/lib
+        export LUAJIT_INC=/usr/local/luajit/include/luajit-2.0
+        source /etc/profile
+
+##### 4.创建modules文件夹保存nginx依赖的模块
+        mkdir -p /usr/local/nginx/modules
+
+##### 5.上传nginx依赖的模块
+        set-misc-nginx-module-0.29.tar.gz
+        lua-nginx-module-0.10.0.tar.gz
+        ngx_devel_kit-0.2.19.tar.gz
+        echo-nginx-module-0.58.tar.gz
+
+##### 6.将依赖的模块直接解压到modules目录
+        tar -zxvf lua-nginx-module-0.10.0.tar.gz -C /usr/local/nginx/modules/
+        ...
+
+##### 7.安装 openresty
+        tar -zxvf openresty-1.9.7.3.tar.gz -C /usr/local/src/
+        cd /usr/local/src/openresty-1.9.7.3/
+        ./configure --prefix=/usr/local/openresty --with-luajit && make && make install
+
+##### 8.安装 nginx
+        cd /usr/local/src/nginx-1.8.1/
+
+./configure --prefix=/usr/local/nginx \
+--with-ld-opt="-Wl,-rpath,/usr/local/luajit/lib" \
+--add-module=/usr/local/nginx/modules/ngx_devel_kit-0.2.19 \
+--add-module=/usr/local/nginx/modules/lua-nginx-module-0.10.0 \
+--add-module=/usr/local/nginx/modules/set-misc-nginx-module-0.29 \
+--add-module=/usr/local/nginx/modules/echo-nginx-module-0.58
+
+make -j2
+make install
+

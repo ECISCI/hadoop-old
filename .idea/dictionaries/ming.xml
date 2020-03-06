@@ -24,6 +24,7 @@
       <w>lastmodified</w>
       <w>lastmodifiedresult</w>
       <w>lastvalue</w>
+      <w>luajit</w>
       <w>makecmd</w>
       <w>maptask</w>
       <w>maxpenalty</w>
@@ -33,7 +34,9 @@
       <w>mysconew</w>
       <w>netcat</w>
       <w>nutch</w>
+      <w>openresty</w>
       <w>pcre</w>
+      <w>rpath</w>
       <w>rubygems</w>
       <w>shoutdown</w>
       <w>sinkgroups</w>
@@ -41,12 +44,14 @@
       <w>sqoopresult</w>
       <w>startshell</w>
       <w>stopshell</w>
+      <w>subrequest</w>
       <w>sysoev</w>
       <w>systemctl</w>
       <w>tailout</w>
       <w>trib</w>
       <w>updateonly</w>
       <w>userdb</w>
+      <w>utrace</w>
       <w>wherequery</w>
     </words>
   </dictionary>

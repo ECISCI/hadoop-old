@@ -1,0 +1,8 @@
+
+
+##### 1. 解决nginx作为服务器客户端访问时中文乱码问题
+        进入nginx源码目录 src/http/modules/ngx_http_log_module.c
+        替换ngx_http_log_module.c文件
+        替换文件参照conf目录下ngx_http_log_module.c
+
+##### 2.nginx lua nginx.conf参照nginx.conf
