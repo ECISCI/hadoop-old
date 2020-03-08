@@ -24,9 +24,9 @@
 ##### 4.es配置文件修改参照 elasticsearch.yml文件,每个节点都要配置
 
 ##### 5.启动elasticsearch
-    1.使用新建用户ela登录
-    2.进入elasticsearch安装目录的bin目录
-    3.执行命令 ./elasticsearch
-    4.关闭防火墙,外网访问 192.168.196.25:9200
+        1.使用新建用户ela登录
+        2.进入elasticsearch安装目录的bin目录
+        3.执行命令 ./elasticsearch
+        4.关闭防火墙,外网访问 192.168.196.25:9200
 
 ##### 6.ES集群搭建参照ES集群搭建.docx文件

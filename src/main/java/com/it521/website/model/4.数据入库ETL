@@ -1,0 +1,44 @@
+##### 基于数仓的大数据分析平台
+
+    数据仓库DW
+    1.确定分析的主题
+    2.基于主题寻找与之关联的数据,事实表数据
+    3.根据业务确定分析的维度
+    4.采集收集数据,对数据进行预处理
+    5.把数据填充到数仓的创建好的表中,映射成功开展后续分析
+
+
+##### ETL
+        ETL工作的实质就是从各个数据源提取数据,对数据进行转换,并最终加载填充数据到数据仓库
+        维度建模后的表中,只有当这些维度/试试表被填充好,ETL工作才算完成
+
+
+       E抽取 T转换 L加载
+       所谓的数据入库(数据仓库)ETL
+
+       ETL本质,经过我们的抽取转换加载,把各个不同的数据源数据加载到数据仓库指定的主题下面
+       跟对应的事实表映射上 便于后续的数据分析
+
+##### ETL方式
+        1.手动ETL
+            使用 command shell hadoop hiveSql 把数据填充到DW中
+        2.软件ETL
+            sqoop kettle
+
+##### 创建ODS层表
+        1.表名通常以简短的英文标识,不要使用汉语拼音甚至中文
+        2.建表的时候表的字段顺序类型 要和数据保持一致
+        3.通常企业中采用分区表进行优化,方便后续查询管理
+
+##### 导入ODS层表数据
+        1.导入原始数据表
+            load data local inpath '/root/hivedata/part-m-00000' into table ods_weblog_origin partition(datestr="20181101");
+
+        2.点击流模型pageViews表
+            load data local inpath '/root/hivedata/part-r-00000' into table ods_click_pageviews partition(datestr="20181101");
+
+        3.点击流模型visit表
+           load data local inpath '/root/hivedata/part-r-00000' into table ods_click_stream_visit partition(datestr="20181101");
+
+        4.时间维度表数据
+           load data local inpath '/root/hivedata/dim_time.dat' into table t_dim_time;

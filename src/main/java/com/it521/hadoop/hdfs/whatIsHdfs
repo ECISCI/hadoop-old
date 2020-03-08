@@ -18,10 +18,8 @@
     1.3 Namenode在本地操作系统的文件系统中存储这个EditLog
     1.4 整个文件系统的名字空间,包括数据块到文件的映射,文件属性等 都存储在一个称为fsimage的文件中,这个文件也放在Namenode所在的本地文件系统上
     1.5 NameNode在内存中保存着整个文件系统的名字空间和文件数据块映射(blockmap)的映像(一个4G的内存足够支撑大量的文件和目录)
-
     1.6 NameNode启动时 从硬盘中读取EditLog和fsimage将所有EditLog中的事务作用在内存中的fsimage上, 并将这个新版本的fsimage从内存中保存到本地磁盘,
         然后删除旧的EditLog,这个过程称为检点(checkpoint),在当前实现中,检点只发生在NameNode启动时
-
     1.7 NameNode负责维护文件系统命名空间,任何文件系统名字空间属性的修改,都将被Namenode记录下来
         应用程序可以设置HDFS保存的文件的副本数目,文件副本数目成为文件副本系数,这个信息是由Namenode来保存
 
@@ -42,17 +40,11 @@
 
     所有HDFS通信协议都是构建在TCP/IP协议上
     客户端通过一个可配置的端口连接到Namenode通过ClientProtocol与NameNode交互
-
     而DataNode是使用DataNodeProtocol与Namenode交互
-
     在设计上Dnode通过周期性的向Nnode发送心跳和数据块来保持和Namenode的通信
-
     数据块报告的信息包括数据块的属性(既数据块属于哪个文件)
-
     数据块ID,数据块修改时间,Nnode的Dnode和数据块的映射关系就是通过系统启动时Dnode的数据块报告建立的
-
     从clientProtocol和DataNodeProtocol抽象出一个远程过程调用(RPC)
-
     在设计上,Nnode不会主动发起RPC,而是响应来自客户端和Dnode的RPC请求
 
 ##### 6.Hdfs工作机制 概述

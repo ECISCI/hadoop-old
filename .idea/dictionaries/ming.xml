@@ -11,9 +11,11 @@
       <w>cloudera</w>
       <w>configcmd</w>
       <w>customertest</w>
+      <w>datestr</w>
       <w>dflume</w>
       <w>docx</w>
       <w>emerg</w>
+      <w>hivedata</w>
       <w>hivedatas</w>
       <w>ifconfig</w>
       <w>imap</w>
@@ -35,9 +37,13 @@
       <w>netcat</w>
       <w>nutch</w>
       <w>openresty</w>
+      <w>pagecounts</w>
+      <w>pageviews</w>
       <w>pcre</w>
+      <w>referal</w>
       <w>rpath</w>
       <w>rubygems</w>
+      <w>sessionid</w>
       <w>shoutdown</w>
       <w>sinkgroups</w>
       <w>spooldir</w>
@@ -52,6 +58,7 @@
       <w>updateonly</w>
       <w>userdb</w>
       <w>utrace</w>
+      <w>visitout</w>
       <w>wherequery</w>
     </words>
   </dictionary>
